@@ -3,10 +3,138 @@ Theme Name: icx
 Theme URI: https://icedterminal.com
 Author: icedterminal
 Author URI: http://icedterminal.com
-Description: Please read: tidythemes.com/concept. icx is the definitive WordPress HTML5 boilerplate starter theme. We've carefully constructed the most clean and minimalist theme possible for designers and developers to use as a base to build websites for clients or to build completely custom themes from scratch. Clean, simple, unstyled, semi-minified, unformatted, and valid code, SEO-friendly, jQuery-enabled, no programmer comments, standardized and as white label as possible, and most importantly, the CSS is reset for cross-browser-compatability and no intrusive visual CSS styles have been added whatsoever. A perfect skeleton theme. For support and suggestions, go to: https://github.com/tidythemes/icx/issues. Thank you.
+Description: n/a
 Version: 2021.1.0
-License: GNU General Public License
+License: GNU General Public License v3
 License URI: https://www.gnu.org/licenses/gpl.html
-Tags: one-column, two-columns, custom-menu, featured-images, microformats, sticky-post, threaded-comments, translation-ready
-Text Domain: icx
+Tags: one-column, two-columns, custom-menu, featured-images, microformats, sticky-post, threaded-comments,
 */
+
+/*
+
+DEVELOPMENT VERSION. PLEASE DO NOT USE FOR LIVE. MAKE CHANGES AND MINIFY.
+
+For themes, swap the color palette. With light themes, use xyz. With dark themes, use zyx.
+All color values are HSL/A. Please keep this consistent.
+
+Why HSL/A? This is a significantly easier way to work with color.
+- H = What hue you want between 0 and 360. Red at 0, Orange, Yellow, Green, Blue, Purple and Red at 360.
+- S = What saturation you want between 0% (dull) and 100% (vibrant).
+- L = What lightness you want between 0% (dark) an 100% (bright).
+- And if A is specified, what opacity you want between 0% (transparent) and 100% (opaque).
+
+The invalid media target below will allow you to see all the colors used in the CSS with editors
+that support live color picking and previews. Such as VS Code and Dreamweaver.
+
+*/
+
+@media (min-width:20000px) {
+    body {
+        /* Lavender */
+        background: hsl(264, 80%, 88%);    /* 100 */
+        background: hsl(266, 82%, 65%);    /* 400 */
+        background: hsl(265, 77%, 55%);    /* 600 */
+        /* Raspberry */
+        background: hsl(339, 83%, 65%);    /* 300 */
+        background: hsl(334, 97%, 43%);    /* 600 */
+        background: hsl(330, 100%, 34%);   /* 800 */
+        /* The Greys, Whites and Blacks */
+        background: hsl(0, 0%, 94%);       /* Body background */
+        background: hsl(0, 0%, 99%);       /* Wrap background */
+        background: hsl(0, 0%, 100%);      /* Table background */
+    }
+}
+
+/*********************************************************************************************************
+
+    COLOR THEMES
+
+    The following section covers theme targeting. The only values here should be color based.
+    This allows for supporting Light and Dark mode choices for user interface. Rather than define
+    the colors over and over, define color once, use the variable.
+
+*********************************************************************************************************/
+
+/*********************************************************************************************************
+
+    Light Theme
+
+*********************************************************************************************************/
+
+@media(prefers-color-scheme:light) {
+    :root {
+        --light-lav: hsl(264, 80%, 88%);
+        --normal-lav: hsl(266, 82%, 65%);
+        --dark-lav: hsl(265, 77%, 55%);
+    }
+
+    body {
+        background-color: hsl(0, 0%, 94%);
+    }
+}
+
+/*********************************************************************************************************
+
+    Dark Theme.
+
+*********************************************************************************************************/
+@media(prefers-color-scheme:dark) {
+    :root {
+        --light-lav: hsl(264, 80%, 88%);
+        --normal-lav: hsl(266, 82%, 65%);
+        --dark-lav: hsl(265, 77%, 55%);
+    }
+
+    body {
+        background-color: hsl(0, 0%, 15%);
+    }
+}
+
+/*********************************************************************************************************
+
+    RESPONSIVE DESIGN
+
+    The following section covers screen size targeting. The only values here should be sized based.
+    Size, Width, Height, Padding, Margin, etc.
+
+*********************************************************************************************************/
+
+/*********************************************************************************************************
+
+    Mobile Devices.
+    - Small Portrait.
+
+*********************************************************************************************************/
+@media (min-width:320px) {
+}
+
+/*********************************************************************************************************
+
+    Mobile Devices.
+    - Medium Portrait.
+    - Small Landscape.
+
+*********************************************************************************************************/
+@media (min-width:481px) {
+}
+
+/*********************************************************************************************************
+
+    Mobile Devices.
+    - Large Portrait.
+    - Medium Landscape.
+
+*********************************************************************************************************/
+@media (min-width:641px) {
+}
+
+/*********************************************************************************************************
+
+    Mobile Devices.
+    - Extra Large Portrait.
+    - Large Landscape.
+    Desktops.
+
+*********************************************************************************************************/
+@media (min-width:961px) {
+}
