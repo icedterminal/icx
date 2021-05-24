@@ -1,2 +1,2 @@
-# icx
-ICX WordPress Theme
+# ICX WordPress Theme
+
