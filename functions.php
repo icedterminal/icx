@@ -96,7 +96,7 @@ return $count;
 }
 
 // ************************************************************************************************ my shit is below this.
-// Copy for the new theme.
+// Remove all of the emoji
 function disable_emoji_feature() {
 	
 	// Prevent Emoji from loading on the front-end
@@ -174,7 +174,7 @@ add_filter( 'rest_endpoints', function( $endpoints ){
     return $endpoints;
 });
 
-// disable rss
+// disable rss for now
 function itsme_disable_feed() {
  wp_die( __( 'Error. No feed available.' ) );
 }
@@ -193,3 +193,22 @@ add_filter( 'wp_sitemaps_add_provider', function ($provider, $name) {
 
 // disable injected recent comments widget css
 add_filter( 'show_recent_comments_widget_style', '__return_false', 99 );
+
+// if a user doesn't input anything into the search box, instead of outputting pages and posts, return 404
+add_action( 'pre_get_posts', function ( $q )
+{
+    if(    !is_admin()
+        && $q->is_main_query()
+        && $q->is_search()
+    ) {
+        $search_terms = $q->get( 's' );
+        if ( !$search_terms ) {
+            add_action( 'wp', function () use ( $q )
+            {
+                $q->set_404();
+                status_header(404);
+                nocache_headers();
+            });
+        }
+    }
+});

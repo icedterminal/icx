@@ -5,8 +5,7 @@
 <h1 class="entry-title"><?php esc_html_e( 'Not Found', 'icx' ); ?></h1>
 </header>
 <div class="entry-content">
-<p><?php esc_html_e( 'Nothing found for the requested page. Try a search instead?', 'icx' ); ?></p>
-<?php get_search_form(); ?>
+<p><?php esc_html_e( 'Hmmm. Nothing here.', 'icx' ); ?></p>
 </div>
 </article>
 </main>

@@ -14,7 +14,7 @@
 <h1 class="entry-title"><?php esc_html_e( 'Nothing Found', 'icx' ); ?></h1>
 </header>
 <div class="entry-content">
-<p><?php esc_html_e( 'Sorry, nothing matched your search. Please try again.', 'icx' ); ?></p>
+<p><?php esc_html_e( 'Nothing found.', 'icx' ); ?></p>
 </div>
 </article>
 <?php endif; ?>

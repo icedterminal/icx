@@ -12,7 +12,7 @@ Tags: one-column, two-columns, custom-menu, featured-images, microformats, stick
 
 /*
 
-DEVELOPMENT VERSION. PLEASE DO NOT USE FOR LIVE. MAKE CHANGES AND MINIFY.
+DEVELOPMENT VERSION. DO NOT USE FOR LIVE. MAKE CHANGES AND MINIFY.
 
 For themes, swap the color palette. With light themes, use xyz. With dark themes, use zyx.
 All color values are HSL/A. Please keep this consistent.
@@ -30,18 +30,23 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 
 @media (min-width:20000px) {
     body {
-        /* Lavender */
-        background: hsl(264, 80%, 88%);    /* 100 */
-        background: hsl(266, 82%, 65%);    /* 400 */
-        background: hsl(265, 77%, 55%);    /* 600 */
-        /* Raspberry */
-        background: hsl(339, 83%, 65%);    /* 300 */
-        background: hsl(334, 97%, 43%);    /* 600 */
-        background: hsl(330, 100%, 34%);   /* 800 */
-        /* The Greys, Whites and Blacks */
-        background: hsl(0, 0%, 94%);       /* Body background */
-        background: hsl(0, 0%, 99%);       /* Wrap background */
-        background: hsl(0, 0%, 100%);      /* Table background */
+        /* Tropical Paradise, Light Mode */
+        background: hsl(335, 100%, 50%);
+        background: hsl(15, 100%, 55%);
+
+        background: hsl(0, 0%, 90%);       /* Body background */
+        background: hsl(0, 0%, 98%);       /* Wrap background */
+
+        background: hsl(0, 0%, 8%);        /* Text color */
+
+        /* Urban Neon, Dark Mode */
+        background: hsl(280, 100%, 58%);
+        background: hsl(182, 100%, 50%);
+
+        background: hsl(0, 0%, 10%);       /* Body background */
+        background: hsl(0, 0%, 18%);       /* Wrap background */
+
+        background: hsl(0, 0%, 91%);       /* Text color */
     }
 }
 
@@ -66,10 +71,11 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         --light-lav: hsl(264, 80%, 88%);
         --normal-lav: hsl(266, 82%, 65%);
         --dark-lav: hsl(265, 77%, 55%);
+        --back-light: hsl(0, 0%, 94%);
     }
 
     body {
-        background-color: hsl(0, 0%, 94%);
+        background-color: var(--back-light);
     }
 }
 
@@ -83,10 +89,11 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         --light-lav: hsl(264, 80%, 88%);
         --normal-lav: hsl(266, 82%, 65%);
         --dark-lav: hsl(265, 77%, 55%);
+        --back-dark: hsl(0, 0%, 15%);
     }
 
     body {
-        background-color: hsl(0, 0%, 15%);
+        background-color: var(--back-dark);
     }
 }
 
