@@ -104,23 +104,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         font-family: 'Cascadia Mono', 'Cascadia Code', Consolas, monospace;
         font-weight: 300;
     }
-    code {
-        white-space: pre-wrap;
-        counter-increment: listing;
-        overflow-y: scroll;
-        overflow-x: scroll;
-    }
-    pre.code::before {
-        counter-reset: listing;
-    }
-    pre.code code::before {
-        content: counter(listing) ". ";
-        display: inline-block;
-        width: 8em;         /* now works */
-        padding-left: auto; /* now works */
-        margin-left: auto;  /* now works */
-        text-align: right;  /* now works */
-    }
     article {
         background: var(--wrap-dark);
         -webkit-box-shadow: 0 3px 20px 0 var(--shadow-dark);
