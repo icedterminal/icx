@@ -94,24 +94,52 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         background-color: var(--back-dark);
         color: var(--text-dark);
     }
-    a {
+    /*
+    If you target just 'a', then the admin bar gets fucked up.
+    To solve that, target the container.
+    */
+    body div#wrapper div#container a {
         background: linear-gradient(0deg, var(--urb-purple), var(--urb-blue));
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
         text-decoration: underline;
     }
-    pre, code {
-        font-family: 'Cascadia Mono', 'Cascadia Code', Consolas, monospace;
-        font-weight: 300;
-    }
-    article {
+    header#header, article {
         background: var(--wrap-dark);
-        -webkit-box-shadow: 0 3px 20px 0 var(--shadow-dark);
-        box-shadow: 0 3px 20px 0 var(--shadow-dark);
     }
     .post::before {
         background: linear-gradient(50deg, var(--urb-purple), var(--urb-blue));
     }
+
+    form > div > label {
+        color: var(--text-dark);
+    }
+    input[type=text],
+    input[type=password] {
+        background: var(--wrap-dark);
+        border: 2px solid var(--back-dark);
+        color: var(--text-dark);
+    }
+    input[type=text]:hover,
+    input[type=password]:hover {
+        border: 2px solid var(--urb-blue);
+    }
+    input[type=text]:focus,
+    input[type=password]:focus {
+        border: 2px solid var(--urb-purple);
+    }
+    /* What happens to the label when the text box is focused */
+    input[type=text]:focus ~ label,
+    input[type=password]:focus ~ label {
+        color: var(--urb-purple);
+        background: var(--wrap-dark);
+    }
+    input[type=text]:not(:placeholder-shown) ~ label,
+    input[type=password]:not(:placeholder-shown) ~ label {
+        background: var(--wrap-dark);
+    }
+
 }
 
 /*********************************************************************************************************
@@ -163,23 +191,27 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 @media (min-width:961px) {
     .post {  
         width: 90%;
-        min-height: 300px;
-        margin: auto;
+        min-height: 500px;
+        margin: 1% auto;
         position: relative;
         padding: 1%;
         box-sizing: border-box;
-        border: 1px;
         background-clip: padding-box;
-        border: solid 1px transparent;
-        border-radius: 4px;
+        border: solid 2px transparent;
+        border-radius: 2px;
     }
     .post::before {
         content: '';
         position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
         z-index: -1;
-        margin: -1px;
+        margin: -2px;
         border-radius: inherit;
+    }
+    div#search {
+        width: 400px;
+        margin: 0px auto;
+        padding: 20px;
     }
 }
 
@@ -192,4 +224,74 @@ html { display: flex; }
 body {
     font-family:Inter,sans-serif;
     font-weight:400;
+    width: 100%;
+}
+pre, code {
+    font-family: 'Cascadia Mono', 'Cascadia Code', Consolas, monospace;
+    font-weight: 300;
+}
+
+.material_input {
+    display: inline-block;
+    margin: 0;
+}
+input[type=text],
+input[type=password] {
+    display: inline-block;
+    transition: 0.2s;
+    padding: 0 8px;
+    height: 34px;
+    font-family:Inter,sans-serif;
+    font-weight:400;
+    font-size: 1em;
+    vertical-align: middle;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    font-size: 1em;
+}
+input[type=text]:focus,
+input[type=password]:focus {
+    outline: none;
+    cursor: text;
+    box-shadow: none;
+}
+
+/* Required positioning for the use of Labels
+   For the labels in forms and the edit row.
+*/
+form > div {
+    position: relative;
+}
+/* Set up the label default position.
+   For the labels in forms and the edit row.
+ */
+form > div > label {
+    position: absolute;
+    margin: 0;
+    padding: 5px;
+    background-color: inherit;
+    top: 5px;
+    left: 7px;
+    pointer-events: none;
+    transition:0.1s ease all;
+    -moz-transition:0.1s ease all;
+    -webkit-transition:0.1s ease all;
+    font-size: 1em;
+    transform-origin: 0 0;
+}
+/* What happens to the label when the text box is focused */
+input[type=text]:focus ~ label,
+input[type=password]:focus ~ label {
+    transform: scale(0.8) translateX(0%) translateY(-80%);
+}
+/* No placeholder text needs to be seen */
+::placeholder {
+    color: hsla(0, 0%, 0%, 0%);
+    opacity: 0%;
+}
+/* With text in the text box and the absence of the placeholder text, keep the label fixed */
+input[type=text]:not(:placeholder-shown) ~ label,
+input[type=password]:not(:placeholder-shown) ~ label {
+    transform: scale(0.8) translateX(0%) translateY(-80%);
 }

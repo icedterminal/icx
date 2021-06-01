@@ -17,7 +17,15 @@
 <div id="site-description"><?php bloginfo( 'description' ); ?></div>
 </div>
 <nav id="menu">
-<div id="search"><?php get_search_form(); ?></div>
+<div id="search">
+    <form role="search" method="get" class="search-form" action="<?php echo get_site_url(); ?>">
+        <div class="material_input">
+            <input type="text" id="search-field" class="search-field" placeholder="search" name="s">
+            <label for="search-field">Search</label>
+        </div>
+        <button type="submit" class="search-submit mat-btn-outline"><span>Search</span></button>
+    </form>
+</div>
 <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
 </nav>
 </header>
