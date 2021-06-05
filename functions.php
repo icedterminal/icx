@@ -62,9 +62,15 @@ register_sidebar( array(
 'after_title' => '</h3>',
 ) );
 }
+// Reset CSS 
 add_action( 'wp_head', 'reset_style', 2 );
 function reset_style() {
 printf( '<link rel="stylesheet" href="%s" />' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/css/reset.min.css' );
+}
+// Google Fonts
+add_action( 'wp_head', 'gfonts', 3 );
+function gfonts() {
+printf( '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">' . "\n" );
 }
 add_action( 'wp_head', 'icx_pingback_header' );
 function icx_pingback_header() {
