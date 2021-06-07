@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php get_sidebar(); ?>
 <main id="content">
 <header class="header">
 <h1 class="entry-title"><?php single_term_title(); ?></h1>
@@ -9,5 +10,4 @@
 <?php endwhile; endif; ?>
 <?php get_template_part( 'nav', 'below' ); ?>
 </main>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

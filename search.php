@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php get_sidebar(); ?>
 <main id="content">
 <?php if ( have_posts() ) : ?>
 <header class="header">
@@ -19,5 +20,4 @@
 </article>
 <?php endif; ?>
 </main>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
