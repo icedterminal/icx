@@ -12,5 +12,5 @@
     font-weight: 400;
     font-display: block;
     src: local('Cascadia Code'),
-         url(/fonts/CascadiaCode.woff2) format('woff2');
+         url(/css/fonts/CascadiaCode.woff2) format('woff2');
 }
