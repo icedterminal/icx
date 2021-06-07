@@ -290,8 +290,8 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 
 *********************************************************************************************************/
 body {
-    font-family:Inter,sans-serif;
-    font-weight:400;
+    font-family:'Red Hat Display',Inter,sans-serif;
+    font-weight: 400;
     overflow-y: scroll; /* Always show scoll bars */
     min-height: 100vh;
     background: url(./img/subtle_carbon.png) repeat; 

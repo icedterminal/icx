@@ -70,7 +70,7 @@ printf( '<link rel="stylesheet" href="%s" />' . "\n", esc_url( get_template_dire
 // Google Fonts
 add_action( 'wp_head', 'gfonts', 3 );
 function gfonts() {
-printf( '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">' . "\n" );
+printf( '<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">' . "\n" );
 }
 add_action( 'wp_head', 'icx_pingback_header' );
 function icx_pingback_header() {
