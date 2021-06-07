@@ -72,6 +72,11 @@ add_action( 'wp_head', 'gfonts', 3 );
 function gfonts() {
 printf( '<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">' . "\n" );
 }
+// Cascadia Code
+add_action( 'wp_head', 'cascode', 4 );
+function cascode() {
+printf( '<link rel="stylesheet" href="%s" />' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/css/fonts.css' );
+}
 add_action( 'wp_head', 'icx_pingback_header' );
 function icx_pingback_header() {
 if ( is_singular() && pings_open() ) {

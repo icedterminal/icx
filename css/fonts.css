@@ -1,0 +1,16 @@
+/*********************************************************************************************************
+
+    Cascadia Code
+    https://github.com/microsoft/cascadia-code
+    Note: These fonts are bundled with Windows Terminal but are not installed system wide. To use them,
+    they have to be uploaded to the webserver and hosted.
+
+*********************************************************************************************************/
+@font-face {
+    font-family: 'Cascadia Code';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: local('Cascadia Code'),
+         url(/fonts/CascadiaCode.woff2) format('woff2');
+}
