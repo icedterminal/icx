@@ -12,5 +12,13 @@
     font-weight: 400;
     font-display: block;
     src: local('Cascadia Code'),
-         url(/css/fonts/CascadiaCode.woff2) format('woff2');
+         url(./fonts/CascadiaCode.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Cascadia Code';
+    font-style: italic;
+    font-weight: 400;
+    font-display: block;
+    src: local('Cascadia Code'),
+         url(./fonts/CascadiaCodeItalic.woff2) format('woff2');
 }
