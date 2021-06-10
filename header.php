@@ -18,8 +18,9 @@
 <!--<div id="site-description">< ?php //bloginfo( 'description' ); ? ></div>-->
 </div>
 <div class="sub-grid">
-<nav id="pages">
-<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+<nav class="menu">
+<?php //wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+<?php wp_nav_menu( array( 'name' => 'main-menu', 'container' => 'ul', 'menu_class' => 'links' ) ); ?>
 </nav>
 <div id="search">
     <form role="search" method="get" class="search-form" action="<?php echo get_site_url(); ?>">
