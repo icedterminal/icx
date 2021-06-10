@@ -264,13 +264,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         background: #7d7d7d;
         line-height: 100%;
         display: inline-block;
-    
-        border-radius: 2em;
-        -webkit-border-radius: 2em;
-        -moz-border-radius: 2em;
-    
-        -webkit-box-shadow: 0 1px 3px rgba(0,0,0, .4);
-        -moz-box-shadow: 0 1px 3px rgba(0,0,0, .4);
     }
     .links:after {
         content: ".";
@@ -297,11 +290,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         display: block;
         padding:  8px 20px;
         margin: 0;
-    
-        -webkit-border-radius: 1.6em;
-        -moz-border-radius: 1.6em;
-        
-        text-shadow: 0 1px 1px rgba(0,0,0, .3);
     }
     .links a:hover {
         background: #000;
@@ -312,32 +300,16 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .links .current a, .links li:hover > a {
         background: #666;
         color: #444;
-        border-top: solid 1px #f8f8f8;
-    
-        -webkit-box-shadow: 0 1px 1px rgba(0,0,0, .2);
-        -moz-box-shadow: 0 1px 1px rgba(0,0,0, .2);
-        box-shadow: 0 1px 1px rgba(0,0,0, .2);
-    
-        text-shadow: 0 1px 0 rgba(255,255,255, 1);
     }
     
     /* sub levels link hover */
     .links ul li:hover a, .links li:hover li a {
         background: none;
-        border: none;
         color: #666;
-    
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
     }
     .links ul a:hover {
         background: #0078ff !important;
         color: #fff !important;
-    
-        -webkit-border-radius: 0;
-        -moz-border-radius: 0;
-    
-        text-shadow: 0 1px 1px rgba(0,0,0, .1);
     }
     
     /* dropdown */
@@ -348,7 +320,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     /* level 2 list */
     .links ul {
         display: none;
-    
         margin: 0;
         padding: 0;
         width: 185px;
@@ -357,14 +328,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         left: 0;
         background: #ddd;
         border: solid 1px #b4b4b4;
-    
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        border-radius: 10px;
-    
-        -webkit-box-shadow: 0 1px 3px rgba(0,0,0, .3);
-        -moz-box-shadow: 0 1px 3px rgba(0,0,0, .3);
-        box-shadow: 0 1px 3px rgba(0,0,0, .3);
     }
     .links ul li {
         float: none;
@@ -374,7 +337,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     
     .links ul a {
         font-weight: normal;
-        text-shadow: 0 1px 0 #fff;
     }
     
     /* level 3+ list */
@@ -383,7 +345,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         top: -3px;
     }
     
-    /* rounded corners of first and last link */
+    /* rounded corners of first and last link 
     .links ul li:first-child > a {
         -webkit-border-top-left-radius: 9px;
         -moz-border-radius-topleft: 9px;
@@ -397,7 +359,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     
         -webkit-border-bottom-right-radius: 9px;
         -moz-border-radius-bottomright: 9px;
-    }
+    }*/
 
 
 
@@ -442,6 +404,11 @@ body {
 pre, code {
     font-family: 'Cascadia Mono', 'Cascadia Code', Consolas, monospace;
     font-weight: 300;
+}
+pre {
+    overflow-y: hidden;
+    overflow-x: auto;
+    max-width: 100%;
 }
 
 .material_input {
