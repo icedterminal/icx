@@ -205,7 +205,7 @@ add_filter( 'wp_sitemaps_add_provider', function ($provider, $name) {
 // disable injected recent comments widget css
 add_filter( 'show_recent_comments_widget_style', '__return_false', 99 );
 
-// if a user doesn't input anything into the search box, instead of outputting pages and posts, return 404
+// if a user doesn't input anything into the search box, instead of outputting all pages and posts, return 404
 add_action( 'pre_get_posts', function ( $q )
 {
     if(    !is_admin()

@@ -122,6 +122,10 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     body::-webkit-scrollbar-thumb {
         background: var(--urb-purple);
     }
+    a {
+        color: var(--text-dark);
+        text-decoration: none;
+    }
     header#top {
         background: linear-gradient(30deg, var(--urb-purple), var(--urb-blue));
     }
@@ -225,19 +229,16 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 
 *********************************************************************************************************/
 @media (min-width:961px) {
-    /* Account for the admin bar when logged in. */
-    body.admin-bar #top { top: 32px; }
+    /* Account for the admin bar when logged in.
+    body.admin-bar #top { top: 32px; } */
     body {
         font-size: 1em;
     }
     header#top {
         display: grid;
-        position: fixed;
+        /*position: fixed;*/
         height: 100px;
         width: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
         grid-template-columns: auto;
         grid-template-rows: 50px 50px;
     }
@@ -369,25 +370,32 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     
 
 
-
+/*
     #wrapper {
         margin: 100px 0 0 0;
-    }
+    }*/
     #container {
         display: flex;
         align-items: stretch;
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
+        width: 96%;
+        max-width: 1600px;
+        margin: 30px auto;
     }
     #sidebar {
         width: 300px;
+        background: var(--wrap-dark);
     }
     #content {
         width: calc(100% - 300px);
     }
+    .full {
+        width: 100% !important;
+    }
+    #content article:last-child {
+        margin: 0px;
+    }
     .post {  
-        min-height: 500px;
+        margin: 0px 0px 40px;
     }
 }
 

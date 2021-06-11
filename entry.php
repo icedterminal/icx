@@ -1,5 +1,5 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<header>
+<header class="title">
 <?php if ( is_singular() ) {
 echo '<h1 class="entry-title">';
 } else {
