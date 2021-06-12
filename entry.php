@@ -11,7 +11,7 @@ echo '</h1>';
 } else {
 echo '</h2>';
 } ?>
-<div class="pencil"><?php edit_post_link(); ?></div>
+<div class="pencil"><?php edit_post_link( '<span class="material-icons" title="Edit this post">edit</span>' ); ?></div>
 <?php if ( ! is_search() ) { get_template_part( 'entry', 'meta' ); } ?>
 </header>
 <?php get_template_part( 'entry', ( is_front_page() || is_home() || is_front_page() && is_home() || is_archive() || is_search() ? 'summary' : 'content' ) ); ?>

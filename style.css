@@ -123,7 +123,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         background: var(--urb-purple);
     }
     a {
-        color: #ff0f00;
+        color: #0066ff;
         text-decoration: none;
     }
     header#top {
@@ -406,6 +406,9 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .post {  
         margin: 0px 0px 40px;
     }
+    h2.entry-title {
+        font-size: 2em;
+    }
     .pagi {
         text-align: center;
         width: 100%;
@@ -425,6 +428,23 @@ body {
     font-family: Roboto,Inter,sans-serif;
     font-weight: 400;
     background: var(--back-dark);
+    /*
+    backface solves a flicker when search is focused.
+    The downside is text is ever so slightly thinner.
+    */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+
+    /*
+    These only work on macOS.
+    "Retina" (HiDPI) displays look like ass when these aren't used.
+    */
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    text-shadow: rgba(0,0,0,1%) 0 0 1px;
 }
 pre, code {
     font-family: 'Cascadia Mono', 'Cascadia Code', Consolas, monospace;

@@ -72,7 +72,7 @@ add_action( 'wp_head', 'gfonts', 3 );
 function gfonts() {
 printf( '<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">' . "\n" );
 }
-// Cascadia Code
+// Cascadia Code & Material Icons
 add_action( 'wp_head', 'cascode', 4 );
 function cascode() {
 printf( '<link rel="stylesheet" href="%s" />' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/css/fonts.css' );
