@@ -395,6 +395,14 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     #content article:last-child {
         margin: 0px !important;
     }
+    article > header {
+        position: relative;
+    }
+    .pencil {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
     .post {  
         margin: 0px 0px 40px;
     }
