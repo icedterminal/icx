@@ -1,7 +1,6 @@
 <?php session_start(); ?>
 <?php get_header(); ?>
-<?php get_sidebar(); ?>
-<main id="content">
+<main id="content" class="full">
 <article id="post-0" class="post not-found">
 <header class="header">
 <h1 class="entry-title"><?php esc_html_e( '', 'icx' ); ?></h1>

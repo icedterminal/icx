@@ -1,6 +1,5 @@
 <?php get_header(); ?>
-<?php get_sidebar(); ?>
-<main id="content">
+<main id="content" class="full">
 <?php if ( have_posts() ) : ?>
 <header class="header">
 <h1 class="entry-title"><?php printf( 'Results for <em>%s</em>' , get_search_query() ); ?></h1>

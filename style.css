@@ -123,7 +123,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         background: var(--urb-purple);
     }
     a {
-        color: var(--text-dark);
+        color: #ff0f00;
         text-decoration: none;
     }
     header#top {
@@ -377,6 +377,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     #container {
         display: flex;
         align-items: stretch;
+        flex-wrap: wrap;
         width: 96%;
         max-width: 1600px;
         margin: 30px auto;
@@ -392,10 +393,18 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         width: 100% !important;
     }
     #content article:last-child {
-        margin: 0px;
+        margin: 0px !important;
     }
     .post {  
         margin: 0px 0px 40px;
+    }
+    .pagi {
+        text-align: center;
+        width: 100%;
+        background: #ff00ff;
+    }
+    ul.pages li {
+        display: inline-block;
     }
 }
 
