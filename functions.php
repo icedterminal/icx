@@ -67,13 +67,13 @@ register_sidebar( array(
 }
 add_action( 'widgets_init', 'icx_widgets_init' );
 
-// Full width page widget ABOVE content
+// Full Width Page Widgets ABOVE content
 function register_above_widget_area() {
     register_sidebar(
         array(
             'id' => 'above-widget-area',
-            'name' => esc_html__( 'Full Width Widget Area Above', 'icx' ),
-            'description' => esc_html__( 'Widgets for full width page templates above page content.', 'icx' ),
+            'name' => esc_html__( 'Page Widget Above Content', 'icx' ),
+            'description' => esc_html__( 'For full width page templates above page content.', 'icx' ),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget' => '</div>',
             'before_title' => '<div class="widget-title-holder"><h3 class="widget-title">',
@@ -83,13 +83,13 @@ function register_above_widget_area() {
 }
 add_action( 'widgets_init', 'register_above_widget_area' );
 
-// Full width page widget BELOW content
+// Full Width Page Widgets BELOW content
 function register_below_widget_area() {
     register_sidebar(
         array(
             'id' => 'below-widget-area',
-            'name' => esc_html__( 'Full Width Widget Area Below', 'icx' ),
-            'description' => esc_html__( 'Widgets for full width page templates below page content.', 'icx' ),
+            'name' => esc_html__( ' Pages Widget Below Content', 'icx' ),
+            'description' => esc_html__( 'For full width page templates below page content.', 'icx' ),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget' => '</div>',
             'before_title' => '<div class="widget-title-holder"><h3 class="widget-title">',
@@ -98,6 +98,22 @@ function register_below_widget_area() {
     );
 }
 add_action( 'widgets_init', 'register_below_widget_area' );
+
+// Full Width Front Page Widgets
+function register_front_widget_area() {
+    register_sidebar(
+        array(
+            'id' => 'front-widget-area',
+            'name' => esc_html__( 'Front Page Widget', 'icx' ),
+            'description' => esc_html__( 'For full width front page template.', 'icx' ),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget' => '</div>',
+            'before_title' => '<div class="widget-title-holder"><h3 class="widget-title">',
+            'after_title' => '</h3></div>'
+        )
+    );
+}
+add_action( 'widgets_init', 'register_front_widget_area' );
 
 // Reset CSS 
 add_action( 'wp_head', 'reset_style', 2 );
