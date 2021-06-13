@@ -409,6 +409,9 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     h2.entry-title {
         font-size: 2em;
     }
+    div#widget {
+        max-width: 360px;
+    }
     .pagi {
         text-align: center;
         width: 100%;

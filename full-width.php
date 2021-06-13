@@ -12,7 +12,21 @@
 </header>
 <div class="entry-content-full">
 <?php if ( has_post_thumbnail() ) { the_post_thumbnail(); } ?>
+
+<?php if ( is_active_sidebar( 'above-widget-area' ) ) : ?>
+<div id="widget" class="above-widget-area">
+<?php dynamic_sidebar( 'above-widget-area' ); ?>
+</div>
+<?php endif; ?>
+
 <?php the_content(); ?>
+
+<?php if ( is_active_sidebar( 'below-widget-area' ) ) : ?>
+<div id="widget" class="below-widget-area">
+<?php dynamic_sidebar( 'below-widget-area' ); ?>
+</div>
+<?php endif; ?>
+
 <div class="entry-links"><?php wp_link_pages(); ?></div>
 </div>
 </article>

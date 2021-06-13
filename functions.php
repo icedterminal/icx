@@ -46,12 +46,15 @@ global $post;
 return ' <a href="' . esc_url( get_permalink( $post->ID ) ) . '" class="more-link">...</a>';
 }
 }
+
+// Image Sizing
 add_filter( 'intermediate_image_sizes_advanced', 'icx_image_insert_override' );
 function icx_image_insert_override( $sizes ) {
 unset( $sizes['medium_large'] );
 return $sizes;
 }
-add_action( 'widgets_init', 'icx_widgets_init' );
+
+// Sidebar widget
 function icx_widgets_init() {
 register_sidebar( array(
 'name' => esc_html__( 'Sidebar Widget Area', 'icx' ),
@@ -62,6 +65,40 @@ register_sidebar( array(
 'after_title' => '</h3>',
 ) );
 }
+add_action( 'widgets_init', 'icx_widgets_init' );
+
+// Full width page widget ABOVE content
+function register_above_widget_area() {
+    register_sidebar(
+        array(
+            'id' => 'above-widget-area',
+            'name' => esc_html__( 'Full Width Widget Area Above', 'icx' ),
+            'description' => esc_html__( 'Widgets for full width page templates above page content.', 'icx' ),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget' => '</div>',
+            'before_title' => '<div class="widget-title-holder"><h3 class="widget-title">',
+            'after_title' => '</h3></div>'
+        )
+    );
+}
+add_action( 'widgets_init', 'register_above_widget_area' );
+
+// Full width page widget BELOW content
+function register_below_widget_area() {
+    register_sidebar(
+        array(
+            'id' => 'below-widget-area',
+            'name' => esc_html__( 'Full Width Widget Area Below', 'icx' ),
+            'description' => esc_html__( 'Widgets for full width page templates below page content.', 'icx' ),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget' => '</div>',
+            'before_title' => '<div class="widget-title-holder"><h3 class="widget-title">',
+            'after_title' => '</h3></div>'
+        )
+    );
+}
+add_action( 'widgets_init', 'register_below_widget_area' );
+
 // Reset CSS 
 add_action( 'wp_head', 'reset_style', 2 );
 function reset_style() {
