@@ -395,27 +395,73 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     #content article:last-child {
         margin: 0px !important;
     }
-    article > header {
-        position: relative;
+    article.has-post-thumbnail > div.texts.listing {
+        display: inline-block;
+        vertical-align: top;
+        width: calc(100% - 254px);
+        margin: 0;
     }
     .pencil {
         position: absolute;
-        right: 0;
-        top: 0;
+        top: -12px;
+        right: -12px;
+        vertical-align: middle;
+        border-radius: 50%;
     }
-    .post {  
-        margin: 0px 0px 40px;
+    a.post-edit-link {
+        vertical-align: middle;
+        display: flex;
+        border: 1px solid;
+        border-radius: 50%;
+        padding: 6px;
+        font-size: 1.1em;
+        background: var(--wrap-dark);
+    }
+    .post, #comments {  
+        margin: 0 40px 40px 0;
+        position: relative;
     }
     h2.entry-title {
-        font-size: 2em;
-    }/*
-    .entry-summary {
-        display: grid;
-        grid-template-columns: 360px auto;
-    }*/
+        font-size: 1.8em;
+    }
+    h1.entry-title {
+        font-size: 2.5em;
+    }
     .thumb {
-        width: 360px;
+        width: 250px;
         display: inline-block;
+        vertical-align: middle;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+    .thumb a {
+        text-indent: -9999px;
+        display: flex;
+    }
+    .texts {
+        max-width: 1260px;
+        box-sizing: border-box;
+    }
+    img.large.wp-post-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        margin: 0 auto;
+    }
+    img.size-large {
+        display: block;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        margin: 0 auto;
+    }
+    img.size-medium {
+        display: block;
+        width: auto;
+        height: auto;
+        text-align: center;
+        margin: 0 auto;
     }
     .front-widget-area {
         margin: 0;
@@ -440,13 +486,45 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .wp-caption {
         width: 100% !important;
     }
+    #comments {
+        background: var(--wrap-dark);
+    }
+
+
+    .footer {
+        background: var(--wrap-dark);
+    }
+    nav.pagi > ul.pages > li {
+        border: 1px solid;
+        margin: 6px 6px;
+    }
+    nav.pagi > ul.pages > li.active {
+        box-shadow: 1px 1px 1px 1px hsla(0, 0%, 0%, 50%);
+    }
+    nav.pagi > ul.pages > li.active > a {
+        color: var(--text-dark);
+    }
+    nav.pagi > ul.pages > li > a {
+        display: block;
+        padding: 8px;
+    }
+    nav.pagi > ul.pages > li > a > span {
+        vertical-align: bottom;
+    }
     .pagi {
         text-align: center;
-        width: 100%;
-        background: #ff00ff;
+        background: #423131;
+        font-size: 18px;
+        margin: 0px 40px 0px 0px;
     }
     ul.pages li {
         display: inline-block;
+    }
+    .newer {
+        float: left;
+    }
+    .older {
+        float: right;
     }
 }
 
@@ -476,6 +554,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
     text-shadow: rgba(0,0,0,1%) 0 0 1px;
+    cursor: default;
 }
 pre, code {
     font-family: 'Cascadia Mono', 'Cascadia Code', Consolas, monospace;

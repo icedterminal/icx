@@ -303,7 +303,7 @@ function numeric_pagi_nav() {
     echo '<nav class="pagi"><ul class="pages">' . "\n";
     /** Previous Post Link */
     if ( get_previous_posts_link() )
-        printf( '<li>%s</li>' . "\n", get_previous_posts_link() );
+        printf( '<li class="newer">%s</li>' . "\n", get_previous_posts_link( '<span class="material-icons">arrow_back</span> Newer' ) );
     /** Link to first page, plus ellipses if necessary */
     if ( ! in_array( 1, $links ) ) {
         $class = 1 == $paged ? ' class="active"' : '';
@@ -326,6 +326,6 @@ function numeric_pagi_nav() {
     }
     /** Next Post Link */
     if ( get_next_posts_link() )
-        printf( '<li>%s</li>' . "\n", get_next_posts_link() );
+        printf( '<li class="older">%s</li>' . "\n", get_next_posts_link( 'Older <span class="material-icons">arrow_forward</span>' ) );
     echo '</ul></nav>' . "\n";
 }
