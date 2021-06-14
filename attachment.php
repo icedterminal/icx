@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 <?php global $post; ?>
-<?php get_sidebar(); ?>
 <main id="content">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -28,4 +27,5 @@
 <?php comments_template(); ?>
 <?php endwhile; endif; ?>
 </main>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

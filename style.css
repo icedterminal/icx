@@ -408,6 +408,14 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     h2.entry-title {
         font-size: 2em;
+    }/*
+    .entry-summary {
+        display: grid;
+        grid-template-columns: 360px auto;
+    }*/
+    .thumb {
+        width: 360px;
+        display: inline-block;
     }
     .front-widget-area {
         margin: 0;
