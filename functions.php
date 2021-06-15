@@ -130,6 +130,11 @@ add_action( 'wp_head', 'cascode', 4 );
 function cascode() {
 printf( '<link rel="stylesheet" href="%s" />' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/css/fonts.css' );
 }
+// Video Player
+add_action( 'wp_footer', 'player_size', 2 );
+function player_size() {
+printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/playersize.js' );
+}
 add_action( 'wp_head', 'icx_pingback_header' );
 function icx_pingback_header() {
 if ( is_singular() && pings_open() ) {
@@ -309,7 +314,7 @@ function numeric_pagi_nav() {
         $class = 1 == $paged ? ' class="active"' : '';
         printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
         if ( ! in_array( 2, $links ) )
-            echo '<li>…</li>';
+            echo '<li class="elip">…</li>';
     }
     /** Link to current page, plus 2 pages in either direction if necessary */
     sort( $links );
@@ -320,7 +325,7 @@ function numeric_pagi_nav() {
     /** Link to last page, plus ellipses if necessary */
     if ( ! in_array( $max, $links ) ) {
         if ( ! in_array( $max - 1, $links ) )
-            echo '<li>…</li>' . "\n";
+            echo '<li class="elip">…</li>' . "\n";
         $class = $paged == $max ? ' class="active"' : '';
         printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $max ) ), $max );
     }
