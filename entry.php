@@ -1,3 +1,4 @@
+<?php //$backgroundImg = wp_get_attachment_image_src( get_post_thumbmail_id( $post->ID), 'thumbnail' ); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <?php if ( is_sticky() ) : ?>
     <div class="pinned">
@@ -9,8 +10,8 @@
     </div>
     <?php if ( is_home() || is_archive() || is_search() ) : ?>
         <?php if ( has_post_thumbnail() ) : ?>
-            <div class="thumb">
-                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
+            <div class="thumb" style="background: url('<?php echo ( get_the_post_thumbnail_url() ); ?>');">
+                <!--<a href="<?php //the_permalink(); ?>" title="<?php //the_title_attribute(); ?>"><?php //the_post_thumbnail('thumbnail'); ?></a>-->
             </div>
         <?php endif; ?>
     <?php endif; ?>

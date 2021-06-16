@@ -235,9 +235,12 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         font-size: 1em;
         line-height: 1.3em;
     }
-    h1, h2 {
+    h1, h2, h3 {
         line-height: 1.1em;
     }
+    h1 {font-size:36px;}
+    h2 {font-size:28px;}
+    h3 {font-size:20px;}
     ul, ol {
         padding: 0px 0px 0px 40px;
     }
@@ -427,7 +430,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     article.has-post-thumbnail > div.texts.listing {
         display: inline-block;
         vertical-align: top;
-        width: calc(100% - 254px);
+        width: calc(100% - 250px);
     }
     .pencil {
         position: absolute;
@@ -463,8 +466,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         background: var(--wrap-dark);
     }
     .meta-home {
-        position: absolute;
-        bottom: 20px;
         font-size: 0.8em;
         line-height: 1.1em;
     }
@@ -472,6 +473,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         margin: 0 40px 40px 0;
         position: relative;
         border-radius: 2px;
+        display: flex;
     }
     #comments {
         margin: 0 40px 0 0;
@@ -480,7 +482,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     header.title {
         border-bottom: 1px solid;
-        margin: 0px 30px 0px 20px;
+        margin: 0px 30px 0px 30px;
         padding: 20px 0px 10px 0px;
     }
     h2.entry-title {
@@ -503,11 +505,11 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         font-style: italic;
     }
     .entry-summary {
-        margin: 10px 30px 0px 20px;
+        margin: 10px 30px 0px 30px;
         padding: 0px 0px 20px 0px;
     }
     .excerpt {
-        margin: 0px 0px 20px 0px;
+        margin: 0px 0px 10px 0px;
     }
     .entry-content {
         margin: 0 auto;
@@ -517,12 +519,15 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         margin: 20px 0px;
     }
     .thumb {
-        max-height: 250px;
-        height: 100%;
-        display: inline-block;
+        min-height: 250px;
+        min-width: 250px;
+        display: inline-flex;
         vertical-align: middle;
         box-sizing: border-box;
         line-height: 0;
+        background-position: center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
     }
     .thumb a {
         text-indent: -9999px;
@@ -537,6 +542,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .texts {
         max-width: 1260px;
         box-sizing: border-box;
+        width: 100%;
     }
     a.more-link {
         font-style: italic;
@@ -585,7 +591,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         width: 500px;
         height: auto;
     }
-    /* For wide images */
+    /* For wide featured images in post */
     div.cut-out > img {
         width: 500px;
         height: auto;
