@@ -36,14 +36,14 @@ return $title;
 add_filter( 'the_content_more_link', 'icx_read_more_link' );
 function icx_read_more_link() {
 if ( ! is_admin() ) {
-return ' <a href="' . esc_url( get_permalink() ) . '" class="more-link">...</a>';
+return '... <a href="' . esc_url( get_permalink() ) . '" class="more-link">Continue reading &rarr;</a>';
 }
 }
 add_filter( 'excerpt_more', 'icx_excerpt_read_more_link' );
 function icx_excerpt_read_more_link( $more ) {
 if ( ! is_admin() ) {
 global $post;
-return ' <a href="' . esc_url( get_permalink( $post->ID ) ) . '" class="more-link">...</a>';
+return '... <a href="' . esc_url( get_permalink( $post->ID ) ) . '" class="more-link">Continue reading &rarr;</a>';
 }
 }
 
@@ -123,7 +123,7 @@ printf( '<link rel="stylesheet" href="%s" />' . "\n", esc_url( get_template_dire
 // Google Fonts
 add_action( 'wp_head', 'gfonts', 3 );
 function gfonts() {
-printf( '<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">' . "\n" );
+printf( '<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">' . "\n" );
 }
 // Cascadia Code & Material Icons
 add_action( 'wp_head', 'cascode', 4 );

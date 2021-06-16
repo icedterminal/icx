@@ -1,14 +1,15 @@
 /*********************************************************************************************************
 
     Myriad
+    This font is not open source. Just testing if I want to use it. Deployment use requires a license.
 
-*********************************************************************************************************/
+*********************************************************************************************************
 @font-face {
     font-family: 'Myriad';
     font-style: normal;
     font-weight: 300;
     font-display: block;
-    src: local('Cascadia Code'),
+    src: local('Myriad Pro'),
          url(./fonts/my-L.woff2) format('woff2'),
          url(./fonts/my-L.woff) format('woff');
 }
@@ -17,7 +18,7 @@
     font-style: italic;
     font-weight: 300;
     font-display: block;
-    src: local('Cascadia Code'),
+    src: local('Myriad Pro'),
          url(./fonts/my-Li.woff2) format('woff2'),
          url(./fonts/my-Li.woff) format('woff');
 }
@@ -26,7 +27,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: local('Cascadia Code'),
+    src: local('Myriad Pro'),
          url(./fonts/my-R.woff2) format('woff2'),
          url(./fonts/my-R.woff) format('woff');
 }
@@ -35,7 +36,7 @@
     font-style: italic;
     font-weight: 400;
     font-display: block;
-    src: local('Cascadia Code'),
+    src: local('Myriad Pro'),
          url(./fonts/my-Ri.woff2) format('woff2'),
          url(./fonts/my-Ri.woff) format('woff');
 }
@@ -44,19 +45,19 @@
     font-style: normal;
     font-weight: 700;
     font-display: block;
-    src: local('Cascadia Code'),
-         url(./fonts/my-B.woff2) format('woff2'),
-         url(./fonts/my-B.woff) format('woff');
+    src: local('Myriad Pro'),
+         url(./fonts/my-SB.woff2) format('woff2'),
+         url(./fonts/my-SB.woff) format('woff');
 }
 @font-face {
     font-family: 'Myriad';
     font-style: italic;
     font-weight: 700;
     font-display: block;
-    src: local('My'),
-         url(./fonts/my-Bi.woff2) format('woff2'),
-         url(./fonts/my-Bi.woff) format('woff');
-}
+    src: local('Myriad Pro'),
+         url(./fonts/my-SBi.woff2) format('woff2'),
+         url(./fonts/my-SBi.woff) format('woff');
+}*/
 /*********************************************************************************************************
 
     Cascadia Code

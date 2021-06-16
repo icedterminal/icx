@@ -238,9 +238,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     h1, h2 {
         line-height: 1.1em;
     }
-    p {
-        margin: 20px 0px;
-    }
     ul, ol {
         padding: 0px 0px 0px 40px;
     }
@@ -431,7 +428,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         display: inline-block;
         vertical-align: top;
         width: calc(100% - 254px);
-        margin: 0;
     }
     .pencil {
         position: absolute;
@@ -439,6 +435,22 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         right: -12px;
         vertical-align: middle;
         border-radius: 50%;
+    }
+    .pinned {
+        position: absolute;
+        top: -14px;
+        left: -14px;
+        vertical-align: middle;
+        border-radius: 50%;
+        transform: rotate(-50deg);
+    }
+    .pin {
+        vertical-align: middle;
+        display: flex;
+        border-radius: 50%;
+        padding: 6px;
+        font-size: 24px;
+        line-height: 24px;
     }
     a.post-edit-link {
         vertical-align: middle;
@@ -450,9 +462,16 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         line-height: 18px;
         background: var(--wrap-dark);
     }
+    .meta-home {
+        position: absolute;
+        bottom: 20px;
+        font-size: 0.8em;
+        line-height: 1.1em;
+    }
     .post {  
         margin: 0 40px 40px 0;
         position: relative;
+        border-radius: 2px;
     }
     #comments {
         margin: 0 40px 0 0;
@@ -461,33 +480,66 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     header.title {
         border-bottom: 1px solid;
-        margin: 0px 20px 10px;
-        padding: 20px 0;
+        margin: 0px 30px 0px 20px;
+        padding: 20px 0px 10px 0px;
     }
     h2.entry-title {
-        font-size: 1.8em;
+        font-size: 28px;
+        font-weight: 600;
     }
     h1.entry-title {
-        font-size: 2.5em;
+        font-size: 36px;
+        font-weight: 600;
+    }
+    div.entry-meta > span.material-icons {
+        vertical-align: text-bottom;
+        padding: 0 2px 0 0;
+    }
+    .entry-meta {
+        margin: 10px 0px 0px 0px;
+    }
+    .entry-date {
+        font-weight: 300;
+        font-style: italic;
+    }
+    .entry-summary {
+        margin: 10px 30px 0px 20px;
+        padding: 0px 0px 20px 0px;
+    }
+    .excerpt {
+        margin: 0px 0px 20px 0px;
     }
     .entry-content {
         margin: 0 auto;
         padding: 0 40px;
     }
+    div.entry-content > p {
+        margin: 20px 0px;
+    }
     .thumb {
-        width: 250px;
+        max-height: 250px;
+        height: 100%;
         display: inline-block;
         vertical-align: middle;
-        padding: 6px;
         box-sizing: border-box;
+        line-height: 0;
     }
     .thumb a {
         text-indent: -9999px;
         display: flex;
+        line-height: 0;
+    }
+    .thumb > a > img {
+        max-height: 250px;
+        height: 100%;
+        width: auto;
     }
     .texts {
         max-width: 1260px;
         box-sizing: border-box;
+    }
+    a.more-link {
+        font-style: italic;
     }
     .fitVids-wrapper {
         position: relative;
@@ -524,6 +576,20 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         text-align: center;
         margin: 0 auto;
     }
+    .cut-out {
+        float: right;
+        display: flex;
+        vertical-align: middle;
+        line-height: 0;
+        margin: 0px 0px 20px 20px;
+        width: 500px;
+        height: auto;
+    }
+    /* For wide images */
+    div.cut-out > img {
+        width: 500px;
+        height: auto;
+    }
     .front-widget-area {
         margin: 0;
         padding: 0;
@@ -547,8 +613,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .wp-caption {
         width: 100% !important;
     }
-
-
     .footer {
         background: var(--wrap-dark);
     }
@@ -587,6 +651,14 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .older {
         float: right;
     }
+
+    a[target="_blank"]::after {
+        font-family: 'Material Icons';
+        content: '\e895';
+        margin: 0 1px 0 3px;
+        vertical-align: text-top;
+        font-size: 14px;
+    }
 }
 
 /*********************************************************************************************************
@@ -595,7 +667,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 
 *********************************************************************************************************/
 body {
-    font-family: Myriad,Roboto,sans-serif;
+    font-family: Rubik,Myriad,Roboto,sans-serif;
     font-weight: 400;
     background: var(--back-dark);
     /*
@@ -619,12 +691,16 @@ body {
 }
 pre, code {
     font-family: 'Cascadia Mono', 'Cascadia Code', Consolas, monospace;
-    font-weight: 300;
+    font-weight: 400;
 }
 pre {
     overflow-y: hidden;
     overflow-x: auto;
     max-width: 100%;
+}
+code {
+    background: #555;
+    padding: 0px 5px;
 }
 
 .material_input {

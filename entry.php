@@ -1,4 +1,9 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <?php if ( is_sticky() ) : ?>
+    <div class="pinned">
+        <span class="material-icons pin" title="STICKY!">push_pin</span>
+    </div>
+    <?php endif; ?>
     <div class="pencil">
         <?php edit_post_link( '<span class="material-icons" title="Edit this post">edit</span>' ); ?>
     </div>
