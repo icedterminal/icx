@@ -425,7 +425,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         width: 100% !important;
     }
     #content article:last-child {
-        margin: 0px !important;
+        margin: 0px 40px 0px 0px !important;
     }
     article.has-post-thumbnail > div.texts.listing {
         display: inline-block;
@@ -477,6 +477,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     #comments {
         margin: 0 40px 0 0;
+        padding: 30px 40px;
         position: relative;
         background: var(--wrap-dark);
     }
@@ -500,7 +501,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .entry-meta {
         margin: 10px 0px 0px 0px;
     }
-    .entry-date {
+    .entry-date, .comments-link {
         font-weight: 300;
         font-style: italic;
     }
@@ -517,6 +518,10 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     div.entry-content > p {
         margin: 20px 0px;
+    }
+    .entry-end {
+        margin: 30px auto;
+        padding: 0px 40px;
     }
     .thumb {
         min-height: 250px;
@@ -619,8 +624,10 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .wp-caption {
         width: 100% !important;
     }
-    .footer {
+    .related {
         background: var(--wrap-dark);
+        margin: 40px 40px 0 0;
+        padding: 40px;
     }
     nav.pagi > ul.pages > li {
         border: 1px solid;
@@ -769,6 +776,6 @@ input[type=password]:not(:placeholder-shown) ~ label {
     transform: scale(0.8) translateX(0%) translateY(-80%);
 }
 
-footer#bottom {
+footer#page-end {
     text-align: center;
 }

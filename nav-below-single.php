@@ -19,7 +19,7 @@ $args=array(
 $my_query = new WP_Query($args);
 if( $my_query->have_posts() ) {
 while ($my_query->have_posts()) : $my_query->the_post(); ?>
-<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+<a href="<?php the_permalink() ?>" rel="bookmark" title="Read post <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
  
 <?php
 endwhile;
