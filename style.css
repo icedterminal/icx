@@ -834,11 +834,16 @@ input[type=password]:focus {
 }
 
 /* Required positioning for the use of Labels */
-form > div {
+form > div,
+form.comment-form > p {
     position: relative;
 }
 /* Set up the label default position. */
-form > div > label {
+form > div > label,
+form.comment-form > p > label[for=author],
+form.comment-form > p > label[for=email],
+form.comment-form > p > label[for=url],
+form.comment-form > p > label[for=comment] {
     position: absolute;
     margin: 0;
     padding: 5px;
