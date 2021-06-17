@@ -54,6 +54,19 @@ unset( $sizes['medium_large'] );
 return $sizes;
 }
 
+// Wrap inserted post images into a div
+function addDivToImage( $content ) {
+    // A regular expression of what to look for.
+    $pattern = '/(<img([^>]*)>)/i';
+    // What to replace it with. $1 refers to the content in the first 'capture group', in parentheses above
+    $replacement = '<div class="inline-image">$1 <span class="gloss"></span></div>';
+    // run preg_replace() on the $content
+    $content = preg_replace( $pattern, $replacement, $content );
+    // return the processed content
+    return $content;
+ }
+ add_filter( 'the_content', 'addDivToImage' );
+
 // Sidebar widget
 function icx_widgets_init() {
 register_sidebar( array(
