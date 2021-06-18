@@ -11,7 +11,7 @@
     <?php if ( is_home() || is_archive() || is_search() ) : ?>
         <?php if ( has_post_thumbnail() ) : ?>
             <div class="thumb" style="background: url('<?php echo ( get_the_post_thumbnail_url() ); ?>');">
-                <!--<a href="<?php //the_permalink(); ?>" title="<?php //the_title_attribute(); ?>"><?php //the_post_thumbnail('thumbnail'); ?></a>-->
+                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
             </div>
         <?php endif; ?>
     <?php endif; ?>

@@ -97,6 +97,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 
     body {
         color: var(--text-light);
+        background: var(--back-light);
     }
 
     body::-webkit-scrollbar {
@@ -106,11 +107,16 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         background: var(--par-pink);
     }
     a {
-        color: #0066ff;
+        color: var(--par-pink);
         text-decoration: none;
+        transition: 0.2s;
+    }
+    a:hover {
+        color: var(--par-orange);
     }
     header#top {
-        background: linear-gradient(30deg, var(--par-pink), var(--par-orange));
+        /*background: linear-gradient(30deg, var(--par-pink), var(--par-orange));*/
+        background: hsl(0, 0%, 60%);
     }
     article {
         background: var(--wrap-light);
@@ -150,6 +156,9 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     #sidebar {
         background: var(--wrap-light);
     }
+    .post, #sidebar, .related, .pagi, #comments {
+        box-shadow: 0px 1px 4px -1px rgb(0,0,0,40%);
+    }
     a.post-edit-link {
         background: var(--wrap-light);
     }
@@ -157,6 +166,9 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         background: var(--wrap-light);
     }
     .related {
+        background: var(--wrap-light);
+    }
+    .pagi {
         background: var(--wrap-light);
     }
 }
@@ -197,6 +209,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 
     body {
         color: var(--text-dark);
+        background: var(--back-dark);
     }
 
     body::-webkit-scrollbar {
@@ -621,6 +634,9 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         text-indent: -9999px;
         display: flex;
         line-height: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(-180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 100%);
     }
     .thumb > a > img {
         max-height: 250px;
@@ -671,19 +687,19 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         text-align: center;
     }
     .cut-out {
-        display: inline-flex;
         line-height: 0;
         max-width: 500px;
         height: auto;
         position: relative;
+        margin: 0 auto;
     }
     .gloss {
         position: absolute;
         height: 100%;
         width: 100%;
-        max-width: 960px;
         top: 0;
         left: 0;
+        background: linear-gradient(-180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 100%);
     }
     /* For wide featured images in post */
     div.cut-out > img {
@@ -696,6 +712,10 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         display: flex;
         max-width: 960px;
         margin: 0 auto;
+    }
+    .img-feature {
+        text-align: center;
+        margin: 20px auto 0px;
     }
     .front-widget-area {
         margin: 0;
@@ -723,7 +743,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .related {
         margin: 40px 40px 0 0;
         padding: 40px;
-    }
+    }/*
     nav.pagi > ul.pages > li {
         border: 1px solid;
         margin: 6px 6px;
@@ -734,7 +754,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     nav.pagi > ul.pages > li > a {
         display: block;
         padding: 8px 12px;
-    }
+    }*/
     nav.pagi > ul.pages > li > a > span {
         vertical-align: bottom;
     }
@@ -743,7 +763,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     .pagi {
         text-align: center;
-        background: #423131;
         font-size: 18px;
         margin: 0px 40px 0px 0px;
     }
@@ -764,6 +783,62 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         vertical-align: text-top;
         font-size: 14px;
     }
+    section#comments-list ul {
+        list-style-type: none;
+    }
+    li.comment {
+        margin: 20px 0px;
+    }
+    li.comment.depth-2,
+    li.comment.depth-3,
+    li.comment.depth-4,
+    li.comment.depth-5 {
+        margin: 10px 0px;
+    }
+    .avatar-32 {
+        border-radius: 50%;
+        position: absolute;
+        top: 4px;
+        left: -36px;
+    }
+    .comment-body, .comment-respond {
+        background: #fff;
+        padding: 12px 16px;
+        position: relative;
+        border-radius: 2px;
+    }
+    div.comment-body > p {
+        padding: 10px 0px;
+    }
+    .reply, .commentmetadata {
+    }
+    .reply {
+    }/*
+    a.comment-reply-link {
+        display: block;
+        box-sizing: border-box;
+        border: 1px solid;
+        padding: 4px 9px;
+        width: fit-content;
+    }*/
+    .commentmetadata {
+        font-style: italic;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    .commentmetadata > a::before {
+        font-family: 'Material Icons';
+        content: '\e9ef';
+        vertical-align: text-bottom;
+        margin: 0px 4px;
+        color: hsl(0, 0%, 60%);
+    }
+    .comment-author {
+    }
+    .comment-respond {
+        margin: 10px auto 30px;
+    }
 }
 
 /*********************************************************************************************************
@@ -774,7 +849,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 body {
     font-family: Rubik,Myriad,Roboto,sans-serif;
     font-weight: 400;
-    background: var(--back-dark);
     /*
     backface solves a flicker when search is focused.
     The downside is text is ever so slightly thinner.
@@ -808,6 +882,7 @@ code {
     padding: 0px 5px;
 }
 
+/* =========================================================================== Material Input Text Field */
 .material_input {
     display: inline-block;
     margin: 0;
@@ -864,9 +939,9 @@ input[type=password]:focus ~ label {
 }
 /* No placeholder text needs to be seen. */
 ::placeholder {
-    color: var(--invis);
-    opacity: 0%;
-}
+    color: #000;
+    opacity: 100%;
+} 
 /* With text in the text box and the absence of the placeholder text, keep the label fixed */
 input[type=text]:not(:placeholder-shown) ~ label,
 input[type=password]:not(:placeholder-shown) ~ label {
@@ -875,4 +950,204 @@ input[type=password]:not(:placeholder-shown) ~ label {
 
 footer#page-end {
     text-align: center;
+}
+
+
+/* =========================================================================== Material Button Outline
+
+    - Background....NO
+    - Border........YES
+    - Hover.........YES
+    - Active........YES
+    - Ripple........YES
+
+Please do not use <input type="button">
+Use <button>. As long as you use this element, no additional styling is required.
+*/
+
+button {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid hsl(266, 82%, 65%);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    padding: 0 16px;
+    min-width: 64px;
+    height: 36px;
+    vertical-align: middle;
+    text-align: center;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    color: hsl(266, 82%, 65%);
+    background-color: hsla(0, 0%, 0%, 0);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 36px;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    transition: 0.15s;
+}
+button::-moz-focus-inner {
+    border: none;
+}
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: hsl(266, 82%, 65%);;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+button::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    padding: 50%;
+    width: 36px;
+    height: 36px;
+    background-color: hsl(265, 77%, 55%);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+    transition: opacity 0.7s, transform 0.4s;
+}
+button:hover,
+button:focus {
+    background-color: hsla(264, 80%, 88%, 0.5);
+}
+button:hover::before {
+    opacity: 0.08;
+}
+button:focus::before {
+    opacity: 0.24;
+}
+button:hover:focus::before {
+    opacity: 0.3;
+}
+button:active {
+}
+button:active::after {
+    opacity: 0.32;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0s;
+}
+
+
+/* =========================================================================== Material A Button Outline
+
+    - Background....NO
+    - Border........YES
+    - Hover.........YES
+    - Active........YES
+    - Ripple........YES
+
+Please do not use <input type="button">
+Use <button>. As long as you use this element, no additional styling is required.
+*/
+
+a.comment-reply-link,
+a#cancel-comment-reply-link,
+nav.pagi > ul.pages > li > a {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid var(--par-pink);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    padding: 0 16px;
+    min-width: 64px;
+    height: 36px;
+    vertical-align: middle;
+    text-align: center;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    color: var(--par-pink);
+    background-color: hsla(0, 0%, 0%, 0);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 36px;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    transition: 0.15s;
+}
+a.comment-reply-link::-moz-focus-inner,
+a#cancel-comment-reply-link::-moz-focus-inner,
+nav.pagi > ul.pages > li > a {
+    border: none;
+}
+a.comment-reply-link::before,
+a#cancel-comment-reply-link::before,
+nav.pagi > ul.pages > li > a {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: hsla(15, 100%, 55%,0.8);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+a.comment-reply-link::after,
+a#cancel-comment-reply-link::after,
+nav.pagi > ul.pages > li > a {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    padding: 50%;
+    width: 36px;
+    height: 36px;
+    background-color: hsl(15, 100%, 55%);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+    transition: opacity 0.7s, transform 0.4s;
+}
+a.comment-reply-link:hover,
+a.comment-reply-link:focus,
+a#cancel-comment-reply-link:hover,
+a#cancel-comment-reply-link:focus,
+nav.pagi > ul.pages > li > a,
+nav.pagi > ul.pages > li > a {
+    background-color: hsla(335, 100%, 50%, 0.2);
+}
+a.comment-reply-link:hover::before,
+a#cancel-comment-reply-link:hover::before,
+nav.pagi > ul.pages > li > a {
+    opacity: 0.08;
+}
+a.comment-reply-link:focus::before,
+a#cancel-comment-reply-link:focus::before,
+nav.pagi > ul.pages > li > a {
+    opacity: 0.24;
+}
+a.comment-reply-link:hover:focus::before,
+a#cancel-comment-reply-link:hover:focus::before,
+nav.pagi > ul.pages > li > a {
+    opacity: 0.3;
+}
+a.comment-reply-link:active {
+}
+a.comment-reply-link:active::after,
+a#cancel-comment-reply-link:active::after,
+nav.pagi > ul.pages > li > a {
+    opacity: 0.32;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0s;
 }

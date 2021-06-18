@@ -64,8 +64,29 @@ function addDivToImage( $content ) {
     $content = preg_replace( $pattern, $replacement, $content );
     // return the processed content
     return $content;
- }
- add_filter( 'the_content', 'addDivToImage' );
+}
+add_filter( 'the_content', 'addDivToImage' );
+
+// Add caption below inserted post images
+
+
+// Add placeholder to comment form fields.
+function comment_placeholders( $fields ) {
+    $fields['author'] = str_replace( '<input', '<input placeholder="' . _x( 'First and last name or a nick name', 'comment form placeholder', 'icx' ) . '"', $fields['author'] );
+    $fields['email'] = str_replace(
+        '<input id="email" name="email" type="text"',
+        '<input type="text" placeholder="contact@example.com"  id="email" name="email"',
+        $fields['email']
+    );
+    $fields['url'] = str_replace(
+        '<input id="url" name="url" type="text"',
+        '<input type="text" placeholder="http://example.com" id="url" name="url"',
+        $fields['url']
+    );
+
+    return $fields;
+}
+add_filter( 'comment_form_default_fields', 'comment_placeholders' );
 
 // Sidebar widget
 function icx_widgets_init() {
