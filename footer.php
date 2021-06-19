@@ -6,5 +6,6 @@
 </footer>
 </div>
 <?php wp_footer(); ?>
+<div class="to-top"><a href="#top">&#xe25a;</a></div>
 </body>
 </html>

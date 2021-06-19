@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width" />
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <style type="text/css">
-    #container{animation:fadein .6s;-moz-animation:fadein .6s;-webkit-animation:fadein .6s;-o-animation:fadein .6s}
+    #container, #particles-js {animation:fadein .6s;-moz-animation:fadein .6s;-webkit-animation:fadein .6s;-o-animation:fadein .6s}
     @keyframes fadein{from{opacity:0}to{opacity:1}}
     @-moz-keyframes fadein{from{opacity:0}to{opacity:1}}
     @-webkit-keyframes fadein{from{opacity:0}to{opacity:1}}

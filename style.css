@@ -110,6 +110,30 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     article {
         background: var(--wrap-light);
     }
+    article#landing {/*
+        background: linear-gradient(50deg, var(--pink-norm), var(--orange-norm));
+        background-size: 200% 200%;
+        animation: gradient 15s ease infinite;
+        color: var(--text-dark);*/
+        border-radius: 4px;
+        background: none;
+    }
+/*
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+*/
+    .widget {
+        background: var(--wrap-light);
+    }
     form > div > label {
         color: var(--text-light);
     }
@@ -502,6 +526,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         width: 300px;
         max-height: 1200px;
         z-index: 100;
+        border-radius: 4px;
     }
     #content {
         width: calc(100% - 300px);
@@ -544,6 +569,8 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         padding: 6px;
         font-size: 24px;
         line-height: 24px;
+        text-shadow: 0px 11px 9px rgb(0,0,0,40%),-1px -1px 0px var(--orange-dark);
+        color: var(--orange-norm);
     }
     a.post-edit-link {
         vertical-align: middle;
@@ -557,6 +584,15 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .meta-home {
         font-size: 0.8em;
         line-height: 1.1em;
+        color: hsl(0, 0%, 60%);
+        font-weight: 300;
+        font-style: italic;
+    }
+    .meta-home a {
+        color: var(--pink-light);
+    }
+    .meta-home a:hover {
+        color: var(--orange-light);
     }
     .post {  
         margin: 0 40px 40px 0;
@@ -564,15 +600,22 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         border-radius: 4px;
         display: flex;
     }
+    h3.comments-title::before {
+        content: '\e0b9';
+        font-family: 'Material Icons';
+        vertical-align: top;
+        margin: 0 6px 0 0px;
+        font-size: 16px;
+    }
     #comments {
         margin: 0 40px 0 0;
         padding: 30px 40px;
         position: relative;
+        scroll-behavior: smooth;
+        border-radius: 4px;
     }
     header.title {
-        border-bottom: 1px solid hsl(0deg 0% 70%);
-        margin: 0px 30px 0px 30px;
-        padding: 20px 0px 10px 0px;
+        margin: 20px 30px;
     }
     h2.entry-title {
         font-size: 28px;
@@ -594,11 +637,15 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         font-style: italic;
     }
     .entry-summary {
-        margin: 10px 30px 0px 30px;
-        padding: 0px 0px 20px 0px;
+        margin: 20px 30px;
     }
     .excerpt {
-        margin: 0px 0px 10px 0px;
+        margin: 0px 0px 20px 0px;
+    }
+    .more-link span {
+        font-family: 'Material Icons';
+        font-style: normal;
+        vertical-align: middle;
     }
     .entry-content {
         margin: 0 auto;
@@ -723,13 +770,13 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     .widget {
         display: block;
-        background: #434343;
         padding: 8px;
         margin: 12px 0;
         width: 23%;
         max-width: 360px;
         min-width: 212px;
         box-sizing: border-box;
+        border-radius: 4px;
     }
     .wp-caption {
         width: 100% !important;
@@ -835,7 +882,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         font-style: italic;
         position: absolute;
         top: 10px;
-        right: 10px;
+        right: 20px;
     }
     .commentmetadata > a::before {
         font-family: 'Material Icons';
@@ -845,9 +892,33 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         color: hsl(0, 0%, 60%);
     }
     .comment-author {
+        border-bottom: 1px solid #ccc;
+        padding: 0px 0px 10px;
     }
     .comment-respond {
         margin: 10px auto 30px;
+    }
+    .to-top {
+        font-family: 'Material Icons';
+        font-size: 24px;
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        z-index: 200;
+        background: #fff;
+        border-radius: 50%;
+        height: 48px;
+        width: 48px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        text-align: center;
+        box-shadow: 0px 1px 4px -1px rgba(0,0,0,40%);
+        transition: 0.2s;
+    }
+    .to-top:hover {
+        box-shadow: 0px 1px 6px 0px rgba(0,0,0,40%);
     }
 }
 
@@ -856,6 +927,16 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     Universal
 
 *********************************************************************************************************/
+@media screen and (prefers-reduced-motion: reduce) {
+    /* If someone has "reduce motion" on, revert back to straight jumping. No animation */
+	html {
+		scroll-behavior: auto;
+	}
+}
+html {
+    /* Safari does not work */
+    scroll-behavior: smooth;
+}
 body {
     font-family: Rubik,Roboto,'SF Pro Display',Helvetica,sans-serif;
     font-weight: 400;
@@ -876,13 +957,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
     text-shadow: rgba(0,0,0,1%) 0 0 1px;
-    cursor: default;
 }
 canvas {
     display: block;
     vertical-align: bottom;
-}
-  
+} 
 #particles-js {
     position: fixed;
     width: 100%;
@@ -971,6 +1050,7 @@ input[type=password]:not(:placeholder-shown) ~ label {
 
 footer#page-end {
     text-align: center;
+    position: relative;
 }
 
 
@@ -1076,8 +1156,8 @@ nav.pagi > ul.pages > li > a {
     text-align: center;
     text-overflow: ellipsis;
     text-transform: uppercase;
-    color: #fff;
-    background-color: var(--pink-norm);
+    color: var(--pink-norm);
+    /*background-color: var(--pink-norm);*/
     font-family: inherit;
     font-size: 14px;
     font-weight: 600;
@@ -1118,10 +1198,10 @@ nav.pagi > ul.pages > li > a::after {
     padding: 50%;
     width: 38px;
     height: 38px;
-    background-color: var(--wrap-light);
+    background-color: #fff;
     opacity: 0;
     transform: translate(-50%, -50%) scale(1);
-    transition: opacity 0.7s, transform 0.4s;
+    transition: opacity 0.7s, transform 0.5s;
 }
 a.comment-reply-link:hover,
 a.comment-reply-link:focus,
@@ -1129,8 +1209,9 @@ a#cancel-comment-reply-link:hover,
 a#cancel-comment-reply-link:focus,
 nav.pagi > ul.pages > li > a:hover,
 nav.pagi > ul.pages > li > a:focus {
-    background-color: var(--pink-dark);
-    border-color: var(--pink-dark);
+    background-color: var(--pink-norm);
+    border-color: var(--pink-norm);
+    color: #fff;
 }
 
 a.comment-reply-link:hover::before,
@@ -1146,14 +1227,14 @@ nav.pagi > ul.pages > li > a:focus::before {
 a.comment-reply-link:hover:focus::before,
 a#cancel-comment-reply-link:hover:focus::before,
 nav.pagi > ul.pages > li > a:hover:focus::before {
-    opacity: 0.3;
+    opacity: 0.36;
 }
 a.comment-reply-link:active {
 }
 a.comment-reply-link:active::after,
 a#cancel-comment-reply-link:active::after,
 nav.pagi > ul.pages > li > a:active::after {
-    opacity: 0.32;
+    opacity: 0.7;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0s;
 }

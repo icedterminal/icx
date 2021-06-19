@@ -36,14 +36,14 @@ return $title;
 add_filter( 'the_content_more_link', 'icx_read_more_link' );
 function icx_read_more_link() {
 if ( ! is_admin() ) {
-return '... <a href="' . esc_url( get_permalink() ) . '" class="more-link">Continue reading &rarr;</a>';
+return '... <a href="' . esc_url( get_permalink() ) . '" class="more-link">Continue reading <span>&#xef6d;</span></a>';
 }
 }
 add_filter( 'excerpt_more', 'icx_excerpt_read_more_link' );
 function icx_excerpt_read_more_link( $more ) {
 if ( ! is_admin() ) {
 global $post;
-return '... <a href="' . esc_url( get_permalink( $post->ID ) ) . '" class="more-link">Continue reading &rarr;</a>';
+return '... <a href="' . esc_url( get_permalink( $post->ID ) ) . '" class="more-link">Continue reading <span>&#xef6d;</span></a>';
 }
 }
 
@@ -172,12 +172,17 @@ printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get
 // Particles framework animation
 add_action( 'wp_footer', 'particles', 3 );
 function particles() {
-printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/particles.min.js' );
+printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/tsparticles.min.js' );
 }
 // Particles framework animation
 add_action( 'wp_footer', 'particles_settings', 4 );
 function particles_settings() {
 printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/particles.settings.js' );
+}
+// Smooth scroll jumping
+add_action( 'wp_footer', 'smooth_scroll', 5 );
+function smooth_scroll() {
+printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/smoothscroll.js' );
 }
 
 add_action( 'wp_head', 'icx_pingback_header' );
