@@ -2,7 +2,7 @@
 <main id="content">
 <?php if ( have_posts() ) : ?>
 <header class="header">
-<h1 class="query"><?php printf( 'Results for <em>%s</em>' , get_search_query() ); ?></h1>
+<h1 class="query"><?php printf( 'Results for <em>"%s"</em>' , get_search_query() ); ?></h1>
 </header>
 <?php while ( have_posts() ) : the_post(); ?>
 <?php get_template_part( 'entry' ); ?>
