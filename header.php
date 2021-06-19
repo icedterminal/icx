@@ -14,6 +14,7 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<div id="particles-js"></div>
     <div id="wrapper" class="hfeed">
         <header id="top">
             <div id="branding">

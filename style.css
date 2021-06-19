@@ -31,14 +31,18 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 @media (min-width:999999px) {
     body {
         /* Tropical Paradise, Light Mode */
-        background: hsl(335, 100%, 50%);
-        background: hsl(15, 100%, 55%);
+        background: #ff6198;   /* Pink Light */
+        background: #ff006a;   /* Pink Normal */
+        background: #d60064;   /* Pink Dark */
+        background: #ff8861;    /* Orange Light */
+        background: #ff531a;    /* Orange Normal */
+        background: #e54510;     /* Orange Dark */
         background: hsl(0, 0%, 88%);       /* Body background */
         background: hsl(0, 0%, 96%);       /* Wrap background */
         background: hsl(0, 0%, 8%);        /* Text color */
 
         /* Urban Neon, Dark Mode */
-        background: hsl(280, 100%, 58%);
+        background: #b829ff;
         background: hsl(182, 100%, 50%);
         background: hsl(0, 0%, 10%);       /* Body background */
         background: hsl(0, 0%, 18%);       /* Wrap background */
@@ -71,29 +75,14 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         --back-light: hsl(0, 0%, 88%);
         --wrap-light: hsl(0, 0%, 96%);
         --text-light: hsl(0, 0%, 8%);
-        --par-pink: hsl(335, 100%, 50%);
-        --par-orange: hsl(15, 100%, 55%);
+        --pink-light: hsl(339, 100%, 69%);   /* Pink Light */
+        --pink-norm: hsl(335, 100%, 50%);   /* Pink Normal */
+        --pink-dark: hsl(332, 100%, 42%);   /* Pink Dark */
+        --orange-light: hsl(15, 100%, 69%);    /* Orange Light */
+        --orange-norm: hsl(15, 100%, 55%);    /* Orange Normal */
+        --orange-dark: hsl(15, 87%, 48%);     /* Orange Dark */
         --shadow-light: hsl(0, 0%, 0%);
     }
-    /* animated bg gradient
-    body {
-        background: linear-gradient(50deg, var(--urb-purple), var(--urb-blue));
-        background-size: 400% 400%;
-        animation: gradient 15s ease infinite;
-        color: var(--text-dark);
-    }
-
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }*/
 
     body {
         color: var(--text-light);
@@ -104,18 +93,18 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         background: var(--invis);
     }
     body::-webkit-scrollbar-thumb {
-        background: var(--par-pink);
+        background: var(--pink-norm);
     }
     a {
-        color: var(--par-pink);
+        color: var(--pink-norm);
         text-decoration: none;
         transition: 0.2s;
     }
     a:hover {
-        color: var(--par-orange);
+        color: var(--orange-norm);
     }
     header#top {
-        /*background: linear-gradient(30deg, var(--par-pink), var(--par-orange));*/
+        /*background: linear-gradient(30deg, var(--pink-norm), var(--orange-norm));*/
         background: hsl(0, 0%, 60%);
     }
     article {
@@ -132,15 +121,15 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     input[type=text]:hover,
     input[type=password]:hover {
-        border: 2px solid var(--par-pink);
+        border: 2px solid var(--pink-norm);
     }
     input[type=text]:focus,
     input[type=password]:focus {
-        border: 2px solid var(--par-orange);
+        border: 2px solid var(--orange-norm);
     }
     input[type=text]:focus ~ label,
     input[type=password]:focus ~ label {
-        color: var(--par-orange);
+        color: var(--orange-norm);
         background: inherit;
     }
     input[type=text]:not(:placeholder-shown) ~ label,
@@ -365,7 +354,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     header#top {
         display: grid;
-        /*position: fixed;*/
+        position: relative;
         height: 100px;
         width: 100%;
         grid-template-columns: auto;
@@ -390,9 +379,8 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     .links {
         margin: 0;
-        padding: 7px 6px 0;
-        line-height: 100%;
-        display: inline-block;
+        padding: 0;
+        /*display: inline-block;*/
     }
     .links:after {
         content: ".";
@@ -403,8 +391,8 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         height: 0;
     }
     .links li {
-        margin: 0 5px;
-        padding: 0 0 8px;
+        margin: 0;
+        padding: 0;
         float: left;
         position: relative;
         list-style: none;
@@ -512,12 +500,16 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     #sidebar {
         width: 300px;
+        max-height: 1200px;
+        z-index: 100;
     }
     #content {
         width: calc(100% - 300px);
     }
     .full {
         width: 100% !important;
+        position: relative;
+        z-index: 100;
     }
     #landing {
         margin: 0 auto !important;
@@ -569,7 +561,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .post {  
         margin: 0 40px 40px 0;
         position: relative;
-        border-radius: 2px;
+        border-radius: 4px;
         display: flex;
     }
     #comments {
@@ -578,7 +570,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         position: relative;
     }
     header.title {
-        border-bottom: 1px solid;
+        border-bottom: 1px solid hsl(0deg 0% 70%);
         margin: 0px 30px 0px 30px;
         padding: 20px 0px 10px 0px;
     }
@@ -629,6 +621,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         background-position: center !important;
         background-size: cover !important;
         background-repeat: no-repeat !important;
+        border-radius: 4px 0px 0px 4px;
     }
     .thumb a {
         text-indent: -9999px;
@@ -637,6 +630,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         width: 100%;
         height: 100%;
         background: linear-gradient(-180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 100%);
+        border-radius: 4px 0px 0px 4px;
     }
     .thumb > a > img {
         max-height: 250px;
@@ -743,6 +737,8 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .related {
         margin: 40px 40px 0 0;
         padding: 40px;
+        z-index: 100;
+        position: relative;
     }/*
     nav.pagi > ul.pages > li {
         border: 1px solid;
@@ -755,25 +751,39 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         display: block;
         padding: 8px 12px;
     }*/
+    ul.pages {
+        padding: 10px 16px;
+        list-style-type: none;
+    }
     nav.pagi > ul.pages > li > a > span {
         vertical-align: bottom;
+        display: initial;
     }
     li.elip {
         border: none !important;
+        margin: 0px 10px;
     }
     .pagi {
         text-align: center;
         font-size: 18px;
         margin: 0px 40px 0px 0px;
+        z-index: 100;
+        position: relative;
     }
     ul.pages li {
         display: inline-block;
     }
     .newer {
         float: left;
+        font-family: 'Material Icons';
     }
     .older {
         float: right;
+        font-family: 'Material Icons';
+    }
+    li.newer > a,
+    li.older > a {
+        line-height: 35px !important;
     }
 
     a[target="_blank"]::after {
@@ -805,10 +815,10 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         background: #fff;
         padding: 12px 16px;
         position: relative;
-        border-radius: 2px;
+        border-radius: 4px;
     }
     div.comment-body > p {
-        padding: 10px 0px;
+        padding: 30px 20px;
     }
     .reply, .commentmetadata {
     }
@@ -847,7 +857,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 
 *********************************************************************************************************/
 body {
-    font-family: Rubik,Myriad,Roboto,sans-serif;
+    font-family: Rubik,Roboto,'SF Pro Display',Helvetica,sans-serif;
     font-weight: 400;
     /*
     backface solves a flicker when search is focused.
@@ -867,6 +877,17 @@ body {
 
     text-shadow: rgba(0,0,0,1%) 0 0 1px;
     cursor: default;
+}
+canvas {
+    display: block;
+    vertical-align: bottom;
+}
+  
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: var(--back-light);
 }
 pre, code {
     font-family: 'Cascadia Mono', 'Cascadia Code', Consolas, monospace;
@@ -896,9 +917,9 @@ input[type=password] {
     font-family:Inter,sans-serif;
     font-weight:400;
     vertical-align: middle;
-    border-radius: 2px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
     font-size: 1em;
 }
 input[type=text]:focus,
@@ -954,38 +975,29 @@ footer#page-end {
 
 
 /* =========================================================================== Material Button Outline
-
-    - Background....NO
-    - Border........YES
-    - Hover.........YES
-    - Active........YES
-    - Ripple........YES
-
-Please do not use <input type="button">
-Use <button>. As long as you use this element, no additional styling is required.
 */
 
 button {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
-    border: 1px solid hsl(266, 82%, 65%);
+    border: 1px solid var(--pink-norm);
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     padding: 0 16px;
     min-width: 64px;
-    height: 36px;
+    height: 38px;
     vertical-align: middle;
     text-align: center;
     text-overflow: ellipsis;
     text-transform: uppercase;
-    color: hsl(266, 82%, 65%);
-    background-color: hsla(0, 0%, 0%, 0);
+    color: #fff;
+    background-color: var(--pink-norm);
     font-family: inherit;
     font-size: 14px;
     font-weight: 600;
-    line-height: 36px;
+    line-height: 38px;
     overflow: hidden;
     outline: none;
     cursor: pointer;
@@ -1001,7 +1013,7 @@ button::before {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: hsl(266, 82%, 65%);;
+    background-color: var(--wrap-light);
     opacity: 0;
     transition: opacity 0.2s;
 }
@@ -1014,16 +1026,17 @@ button::after {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     padding: 50%;
-    width: 36px;
-    height: 36px;
-    background-color: hsl(265, 77%, 55%);
+    width: 38px;
+    height: 38px;
+    background-color: var(--wrap-light);
     opacity: 0;
     transform: translate(-50%, -50%) scale(1);
     transition: opacity 0.7s, transform 0.4s;
 }
 button:hover,
 button:focus {
-    background-color: hsla(264, 80%, 88%, 0.5);
+    background-color: var(--pink-dark);
+    border-color: var(--pink-dark);
 }
 button:hover::before {
     opacity: 0.08;
@@ -1044,15 +1057,6 @@ button:active::after {
 
 
 /* =========================================================================== Material A Button Outline
-
-    - Background....NO
-    - Border........YES
-    - Hover.........YES
-    - Active........YES
-    - Ripple........YES
-
-Please do not use <input type="button">
-Use <button>. As long as you use this element, no additional styling is required.
 */
 
 a.comment-reply-link,
@@ -1061,23 +1065,23 @@ nav.pagi > ul.pages > li > a {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
-    border: 1px solid var(--par-pink);
+    border: 1px solid var(--pink-norm);
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     padding: 0 16px;
     min-width: 64px;
-    height: 36px;
+    height: 38px;
     vertical-align: middle;
     text-align: center;
     text-overflow: ellipsis;
     text-transform: uppercase;
-    color: var(--par-pink);
-    background-color: hsla(0, 0%, 0%, 0);
+    color: #fff;
+    background-color: var(--pink-norm);
     font-family: inherit;
     font-size: 14px;
     font-weight: 600;
-    line-height: 36px;
+    line-height: 38px;
     overflow: hidden;
     outline: none;
     cursor: pointer;
@@ -1085,25 +1089,25 @@ nav.pagi > ul.pages > li > a {
 }
 a.comment-reply-link::-moz-focus-inner,
 a#cancel-comment-reply-link::-moz-focus-inner,
-nav.pagi > ul.pages > li > a {
+nav.pagi > ul.pages > li > a::-moz-focus-inner {
     border: none;
 }
 a.comment-reply-link::before,
 a#cancel-comment-reply-link::before,
-nav.pagi > ul.pages > li > a {
+nav.pagi > ul.pages > li > a::before {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: hsla(15, 100%, 55%,0.8);
+    background-color: var(--wrap-light);
     opacity: 0;
     transition: opacity 0.2s;
 }
 a.comment-reply-link::after,
 a#cancel-comment-reply-link::after,
-nav.pagi > ul.pages > li > a {
+nav.pagi > ul.pages > li > a::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -1112,9 +1116,9 @@ nav.pagi > ul.pages > li > a {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     padding: 50%;
-    width: 36px;
-    height: 36px;
-    background-color: hsl(15, 100%, 55%);
+    width: 38px;
+    height: 38px;
+    background-color: var(--wrap-light);
     opacity: 0;
     transform: translate(-50%, -50%) scale(1);
     transition: opacity 0.7s, transform 0.4s;
@@ -1123,30 +1127,32 @@ a.comment-reply-link:hover,
 a.comment-reply-link:focus,
 a#cancel-comment-reply-link:hover,
 a#cancel-comment-reply-link:focus,
-nav.pagi > ul.pages > li > a,
-nav.pagi > ul.pages > li > a {
-    background-color: hsla(335, 100%, 50%, 0.2);
+nav.pagi > ul.pages > li > a:hover,
+nav.pagi > ul.pages > li > a:focus {
+    background-color: var(--pink-dark);
+    border-color: var(--pink-dark);
 }
+
 a.comment-reply-link:hover::before,
 a#cancel-comment-reply-link:hover::before,
-nav.pagi > ul.pages > li > a {
+nav.pagi > ul.pages > li > a:hover::before {
     opacity: 0.08;
 }
 a.comment-reply-link:focus::before,
 a#cancel-comment-reply-link:focus::before,
-nav.pagi > ul.pages > li > a {
+nav.pagi > ul.pages > li > a:focus::before {
     opacity: 0.24;
 }
 a.comment-reply-link:hover:focus::before,
 a#cancel-comment-reply-link:hover:focus::before,
-nav.pagi > ul.pages > li > a {
+nav.pagi > ul.pages > li > a:hover:focus::before {
     opacity: 0.3;
 }
 a.comment-reply-link:active {
 }
 a.comment-reply-link:active::after,
 a#cancel-comment-reply-link:active::after,
-nav.pagi > ul.pages > li > a {
+nav.pagi > ul.pages > li > a:active::after {
     opacity: 0.32;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0s;

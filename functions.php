@@ -169,6 +169,17 @@ add_action( 'wp_footer', 'player_size', 2 );
 function player_size() {
 printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/playersize.js' );
 }
+// Particles framework animation
+add_action( 'wp_footer', 'particles', 3 );
+function particles() {
+printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/particles.min.js' );
+}
+// Particles framework animation
+add_action( 'wp_footer', 'particles_settings', 4 );
+function particles_settings() {
+printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/particles.settings.js' );
+}
+
 add_action( 'wp_head', 'icx_pingback_header' );
 function icx_pingback_header() {
 if ( is_singular() && pings_open() ) {
@@ -342,7 +353,7 @@ function numeric_pagi_nav() {
     echo '<nav class="pagi"><ul class="pages">' . "\n";
     /** Previous Post Link */
     if ( get_previous_posts_link() )
-        printf( '<li class="newer">%s</li>' . "\n", get_previous_posts_link( '<span class="material-icons">arrow_back</span> Newer' ) );
+        printf( '<li class="newer">%s</li>' . "\n", get_previous_posts_link( '&#xe5c4;' ) );
     /** Link to first page, plus ellipses if necessary */
     if ( ! in_array( 1, $links ) ) {
         $class = 1 == $paged ? ' class="active"' : '';
@@ -365,6 +376,6 @@ function numeric_pagi_nav() {
     }
     /** Next Post Link */
     if ( get_next_posts_link() )
-        printf( '<li class="older">%s</li>' . "\n", get_next_posts_link( 'Older <span class="material-icons">arrow_forward</span>' ) );
+        printf( '<li class="older">%s</li>' . "\n", get_next_posts_link( '&#xe5c8;' ) );
     echo '</ul></nav>' . "\n";
 }
