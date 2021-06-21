@@ -97,41 +97,17 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     a {
         color: var(--pink-norm);
-        text-decoration: none;
-        transition: 0.2s;
     }
     a:hover {
         color: var(--orange-norm);
     }
     header#top {
-        /*background: linear-gradient(30deg, var(--pink-norm), var(--orange-norm));*/
         background: hsl(0, 0%, 60%);
         box-shadow: 0px 1px 4px -1px rgb(0,0,0,40%);
     }
     article {
         background: var(--wrap-light);
     }
-    article#landing {/*
-        background: linear-gradient(50deg, var(--pink-norm), var(--orange-norm));
-        background-size: 200% 200%;
-        animation: gradient 15s ease infinite;
-        color: var(--text-dark);*/
-        border-radius: 4px;
-        background: none;
-    }
-/*
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-*/
     .widget {
         background: var(--wrap-light);
     }
@@ -185,6 +161,41 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .pagi {
         background: var(--wrap-light);
     }
+    .pin {
+        color: var(--orange-norm);
+        text-shadow: 0px 11px 9px rgb(0,0,0,40%),-1px -1px 0px var(--orange-dark);
+    }
+    .meta-home {
+        color: hsl(0, 0%, 60%);
+    }
+    .meta-home a {
+        color: var(--pink-light);
+    }
+    .meta-home a:hover {
+        color: var(--orange-light);
+    }
+    .thumb a {
+        background: linear-gradient(-180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 100%);
+    }
+    .gloss {
+        background: linear-gradient(-180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 100%);
+    }
+    .comment-body, .comment-respond {
+        background: #fff;
+    }
+    .commentmetadata > a::before {
+        color: hsl(0, 0%, 60%);
+    }
+    .comment-author {
+        border-color:#ccc !important;
+    }
+    .to-top {
+        background: #fff;
+        box-shadow: 0px 1px 4px -1px rgba(0,0,0,40%);
+    }
+    .to-top:hover {
+        box-shadow: 0px 1px 6px 0px rgba(0,0,0,40%);
+    }
 }
 
 /*********************************************************************************************************
@@ -201,26 +212,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         --urb-blue: hsl(182, 100%, 50%);
         --shadow-dark: hsl(0, 0%, 0%);
     }
-    /* animated bg gradient
-    body {
-        background: linear-gradient(50deg, var(--urb-purple), var(--urb-blue));
-        background-size: 400% 400%;
-        animation: gradient 15s ease infinite;
-        color: var(--text-dark);
-    }
-
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }*/
-
     body {
         color: var(--text-dark);
         background: var(--back-dark);
@@ -352,6 +343,19 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     h1 {font-size:36px;}
     h2 {font-size:28px;}
     h3 {font-size:20px;}
+    a[target="_blank"]::before {
+        font-family: 'Material Icons';
+        content: '\e895';
+        margin: 0 3px 0 1px;
+        vertical-align: text-top;
+        font-size: 14px;
+    }
+    a {
+        text-decoration: none;
+        transition: 0.2s;
+        display: inline-block;
+        position: relative;
+    }
     ul, ol {
         padding: 0px 0px 0px 40px;
     }
@@ -520,7 +524,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         align-items: stretch;
         flex-wrap: wrap;
         width: 96%;
-        max-width: 1600px;
+        max-width: 1400px;
         margin: 30px auto;
     }
     #sidebar {
@@ -537,7 +541,9 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         position: relative;
         z-index: 100;
     }
-    #landing {
+    article#landing {
+        border-radius: 4px;
+        background: none;
         margin: 0 auto !important;
     }
     #content article:last-child {
@@ -570,13 +576,10 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         padding: 6px;
         font-size: 24px;
         line-height: 24px;
-        text-shadow: 0px 11px 9px rgb(0,0,0,40%),-1px -1px 0px var(--orange-dark);
-        color: var(--orange-norm);
     }
     a.post-edit-link {
         vertical-align: middle;
         display: flex;
-        border: 1px solid;
         border-radius: 50%;
         padding: 6px;
         font-size: 18px;
@@ -585,15 +588,8 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     .meta-home {
         font-size: 0.8em;
         line-height: 1.1em;
-        color: hsl(0, 0%, 60%);
         font-weight: 300;
         font-style: italic;
-    }
-    .meta-home a {
-        color: var(--pink-light);
-    }
-    .meta-home a:hover {
-        color: var(--orange-light);
     }
     .post {  
         margin: 0 40px 40px 0;
@@ -677,7 +673,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         line-height: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(-180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 100%);
         border-radius: 4px 0px 0px 4px;
     }
     .thumb > a > img {
@@ -698,7 +693,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         padding-bottom: 42.1%;
         width: 75%;
         height: 75%;
-        margin: 0 auto;
+        margin: 30px auto;
     }
     .fitVids-wrapper iframe {
         position: absolute;
@@ -706,7 +701,8 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         left: 0;
         width: 100%;
         height: 100%;
-        }
+        border-radius: 4px;
+    }
     img.large.wp-post-image {
         display: block;
         width: 100%;
@@ -741,8 +737,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         width: 100%;
         top: 0;
         left: 0;
-        background: linear-gradient(-180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 100%);
-    }
+   }
     /* For wide featured images in post */
     div.cut-out > img {
         max-width: 500px;
@@ -753,7 +748,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         position: relative;
         display: flex;
         max-width: 960px;
-        margin: 0 auto;
+        margin: 30px auto;
     }
     .img-feature {
         text-align: center;
@@ -833,14 +828,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     li.older > a {
         line-height: 35px !important;
     }
-
-    a[target="_blank"]::after {
-        font-family: 'Material Icons';
-        content: '\e895';
-        margin: 0 1px 0 3px;
-        vertical-align: text-top;
-        font-size: 14px;
-    }
     section#comments-list ul {
         list-style-type: none;
     }
@@ -860,7 +847,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         left: -36px;
     }
     .comment-body, .comment-respond {
-        background: #fff;
         padding: 12px 16px;
         position: relative;
         border-radius: 4px;
@@ -898,10 +884,9 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         content: '\e9ef';
         vertical-align: text-bottom;
         margin: 0px 4px;
-        color: hsl(0, 0%, 60%);
     }
     .comment-author {
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid;
         padding: 0px 0px 10px;
     }
     .comment-respond {
@@ -914,7 +899,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         bottom: 28px;
         right: 28px;
         z-index: 200;
-        background: #fff;
         border-radius: 50%;
         height: 48px;
         width: 48px;
@@ -923,11 +907,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         align-content: center;
         flex-direction: column;
         text-align: center;
-        box-shadow: 0px 1px 4px -1px rgba(0,0,0,40%);
         transition: 0.2s;
-    }
-    .to-top:hover {
-        box-shadow: 0px 1px 6px 0px rgba(0,0,0,40%);
     }
     div.to-top > a {
         width: 100%;
