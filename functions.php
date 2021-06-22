@@ -141,8 +141,8 @@ function register_front_widget_area() {
             'name' => esc_html__( 'Front Page Widget', 'icx' ),
             'description' => esc_html__( 'For full width front page template.', 'icx' ),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
-            'after_widget' => '</div>',
-            'before_title' => '<div class="widget-title-holder"><h3 class="widget-title">',
+            'after_widget' => '</div></div>',
+            'before_title' => '<div class="widget-text-overlay"><div class="widget-title-holder"><h3 class="widget-title">',
             'after_title' => '</h3></div>'
         )
     );
@@ -178,11 +178,6 @@ printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get
 add_action( 'wp_footer', 'particles_settings', 4 );
 function particles_settings() {
 printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/particles.settings.js' );
-}
-// Smooth scroll jumping
-add_action( 'wp_footer', 'smooth_scroll', 5 );
-function smooth_scroll() {
-printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/smoothscroll.js' );
 }
 
 add_action( 'wp_head', 'icx_pingback_header' );

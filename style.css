@@ -139,6 +139,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     nav.pagi > ul.pages > li.active > a {
         color: var(--text-light);
+        border: transparent;
     }
     .links {
         background: #7d7d7d;
@@ -146,11 +147,28 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     #sidebar {
         background: var(--wrap-light);
     }
+    a.tag-cloud-link {
+        background: var(--pink-norm);
+        color: #fff;
+    }
+    a.tag-cloud-link:hover {
+        background: var(--orange-norm);
+        color: #fff;
+    }
+    a.tag-cloud-link:before {
+        border-color:transparent var(--pink-norm) transparent transparent;
+    }
+    a.tag-cloud-link:hover:before {
+        border-color:transparent var(--orange-norm) transparent transparent;
+    }
     .post, #sidebar, .related, .pagi, #comments {
         box-shadow: 0px 1px 4px -1px rgb(0,0,0,40%);
     }
     a.post-edit-link {
         background: var(--wrap-light);
+    }
+    ul.items li {
+        border-color: #ccc !important;
     }
     #comments {
         background: var(--wrap-light);
@@ -160,6 +178,11 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     .pagi {
         background: var(--wrap-light);
+    }
+    nav.pagi > ul.pages > li.active > a:hover,
+    nav.pagi > ul.pages > li.active > a:focus {
+        background: none !important;
+        color: inherit !important;
     }
     .pin {
         color: var(--orange-norm);
@@ -195,6 +218,60 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     .to-top:hover {
         box-shadow: 0px 1px 6px 0px rgba(0,0,0,40%);
+    }
+/* =========================================================================== Material Button Outline
+*/
+
+    button,
+    input[type="submit"] {
+        border: 1px solid var(--pink-norm);
+        color: #fff;
+        background-color: var(--pink-norm);
+    }
+    button::before,
+    input[type="submit"]::before {
+        background-color: var(--wrap-light);
+    }
+    button::after,
+    input[type="submit"]::after {
+        background-color: #fff;
+    }
+    button:hover,
+    button:focus,
+    input[type="submit"]:hover,
+    input[type="submit"]:focus {
+        background-color: var(--pink-dark);
+        border-color: var(--pink-dark);
+        color: #fff;
+    }
+
+/* =========================================================================== Material A Button Outline
+*/
+    a.comment-reply-link,
+    a#cancel-comment-reply-link,
+    nav.pagi > ul.pages > li > a {
+        border: 1px solid var(--pink-norm);
+        color: var(--pink-norm);
+    }
+    a.comment-reply-link::before,
+    a#cancel-comment-reply-link::before,
+    nav.pagi > ul.pages > li > a::before {
+        background-color: var(--wrap-light);
+    }
+    a.comment-reply-link::after,
+    a#cancel-comment-reply-link::after,
+    nav.pagi > ul.pages > li > a::after {
+        background-color: #fff;
+    }
+    a.comment-reply-link:hover,
+    a.comment-reply-link:focus,
+    a#cancel-comment-reply-link:hover,
+    a#cancel-comment-reply-link:focus,
+    nav.pagi > ul.pages > li > a:hover,
+    nav.pagi > ul.pages > li > a:focus {
+        background-color: var(--pink-norm);
+        border-color: var(--pink-norm);
+        color: #fff;
     }
 }
 
@@ -343,10 +420,10 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     h1 {font-size:36px;}
     h2 {font-size:28px;}
     h3 {font-size:20px;}
-    a[target="_blank"]::before {
+    a[target="_blank"]::after {
         font-family: 'Material Icons';
         content: '\e895';
-        margin: 0 3px 0 1px;
+        margin: 0 1px 0 3px;
         vertical-align: text-top;
         font-size: 14px;
     }
@@ -529,22 +606,90 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     #sidebar {
         width: 300px;
-        max-height: 1200px;
         z-index: 100;
         border-radius: 4px;
+    }
+    ul.items {
+        list-style-type: none;
+        padding: 0;
+    }
+    ul.items li {
+        padding: 30px 0px;
+        border-bottom: 1px solid;
+    }
+    ul.items li:last-child {
+        border:none;
+    }
+    ul.items > li > ul {
+        padding: 0px 0px 0px 10px;
+        margin: 10px 0px;
+    }
+    ul.items > li > ul > li {
+        list-style-type: none;
+        margin: 4px 0;
+        padding: 0;
+        border: none;
+    }
+    ul.items > li > ul > li:before {
+        content:'\e5cc';
+        font-family: 'Material Icons';
+        vertical-align:text-bottom;
+        font-size:22px;
+    }
+    div#primary {
+        padding: 15px 30px;
+    }
+    .tagcloud {
+        margin: 10px 0px;
+    }
+    a.tag-cloud-link {
+        font-size: 1em !important;
+        border-radius: 0px 6px 6px 0px;
+        margin:4px 8px;
+        padding:2px 4px;
+        transition: none;
+    }
+    a.tag-cloud-link:before {
+        content:"";
+        float:left;
+        position:absolute;
+        top:0;
+        left:-12px;
+        width:0;
+        height:0;
+        border-style:solid;
+        border-width:12px 12px 12px 0;
+    }
+    div#calendar_wrap {
+        margin: 10px 0px;
+    }
+    table#wp-calendar {
+        margin: 0 auto;
+        text-align:center;
+        width: 100%;
+    }
+    table#wp-calendar > thead {
+        border-bottom: 1px solid;
     }
     #content {
         width: calc(100% - 300px);
     }
     .full {
         width: 100% !important;
-        position: relative;
-        z-index: 100;
+        position: unset;
     }
     article#landing {
         border-radius: 4px;
         background: none;
         margin: 0 auto !important;
+    }
+    .logo {
+        max-width: 360px;
+        height: 100vh;
+        margin: 0px auto;
+        position: relative;
+        box-sizing: border-box;
+        padding: 100px 0;
     }
     #content article:last-child {
         margin: 0px 40px 0px 0px;
@@ -754,6 +899,11 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         text-align: center;
         margin: 20px auto 0px;
     }
+    .cover {
+        width: 100% !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
     .front-widget-area {
         margin: 0;
         padding: 0;
@@ -766,13 +916,78 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     .widget {
         display: block;
-        padding: 8px;
-        margin: 12px 0;
-        width: 23%;
-        max-width: 360px;
-        min-width: 212px;
+        position: relative;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        min-height: 100vh;
         box-sizing: border-box;
-        border-radius: 4px;
+        border-radius: 0;
+    }
+    div#text-4 {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-tyler-lastovich-699122-scaled.jpg) no-repeat center;
+        text-align: right;
+        background-attachment: fixed;
+        background-blend-mode: luminosity;
+        background-size: cover;
+    }
+    div#text-5 {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-cottonbro-4553180-scaled.jpg) no-repeat center;
+        text-align: left;
+        background-attachment: fixed;
+        background-blend-mode: luminosity;
+        background-size: cover;
+    }
+    div#text-6 {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/artiom-vallat-mx9axbKqKW8-unsplash-scaled.jpg) no-repeat center;
+        text-align: right;
+        background-attachment: fixed;
+        background-blend-mode: luminosity;
+        background-size: cover;
+    }
+    div#text-7 {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/code-1839406_1920.jpg) no-repeat center;
+        text-align: left;
+        background-attachment: fixed;
+        background-blend-mode: luminosity;
+        background-size: cover;
+    }
+    div#text-8 {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/storage-scaled.jpg) no-repeat center;
+        text-align: right;
+        background-attachment: fixed;
+        background-blend-mode: luminosity;
+        background-size: cover;
+    }
+    div#text-9 {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-pixabay-270700-scaled.jpg) no-repeat center;
+        text-align: left;
+        background-attachment: fixed;
+        background-blend-mode: luminosity;
+        background-size: cover;
+    }
+    div#text-10 {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-martin-lopez-2225617-scaled.jpg) no-repeat center;
+        text-align: right;
+        background-attachment: fixed;
+        background-blend-mode: luminosity;
+        background-size: cover;
+    }
+    div#text-11 {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/mesh-wifi-scaled.jpg) no-repeat left;
+        text-align: left;
+        background-attachment: fixed;
+        background-blend-mode: luminosity;
+        background-size: cover;
+    }
+    .widget-text-overlay {
+        background: var(--wrap-light);
+        width: 30%;
+        display: inline-block;
+        height: auto;
+        box-sizing: border-box;
+        padding: 40px;
+        margin: 30px;
     }
     .wp-caption {
         width: 100% !important;
@@ -782,6 +997,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         padding: 40px;
         z-index: 100;
         position: relative;
+        border-radius: 4px;
     }/*
     nav.pagi > ul.pages > li {
         border: 1px solid;
@@ -827,6 +1043,9 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     li.newer > a,
     li.older > a {
         line-height: 35px !important;
+    }
+    nav.pagi > ul.pages > li.active > a {
+        cursor: default;
     }
     section#comments-list ul {
         list-style-type: none;
@@ -921,6 +1140,94 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         justify-content: center;
         align-items: stretch;
     }
+
+
+
+
+
+
+
+
+    section#section03 {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        width: 42px;
+        margin: 0px 0px 0px -42px;
+    }
+    #section03 a {
+        padding-top: 60px;
+      }
+      #section03 a span {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 46px;
+        height: 46px;
+        margin-left: -23px;
+        border: 1px solid #ff006a;
+        border-radius: 100%;
+        box-sizing: border-box;
+      }
+      #section03 a span::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin: -12px 0 0 -8px;
+        border-left: 1px solid #ff006a;
+        border-bottom: 1px solid #ff006a;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+      }
+      #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 44px;
+        height: 44px;
+        box-shadow: 0 0 0 0 rgba(255,255,255,.1);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+      }
+      @-webkit-keyframes sdb03 {
+        0% {
+          opacity: 0;
+        }
+        30% {
+          opacity: 1;
+        }
+        60% {
+          box-shadow: 0 0 0 60px rgba(255,255,255,.1);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes sdb03 {
+        0% {
+          opacity: 0;
+        }
+        30% {
+          opacity: 1;
+        }
+        60% {
+          box-shadow: 0 0 0 60px rgba(255,255,255,.1);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
 }
 
 /*********************************************************************************************************
@@ -979,7 +1286,6 @@ pre {
     max-width: 100%;
 }
 code {
-    background: #555;
     padding: 0px 5px;
 }
 h1.query {
@@ -1055,19 +1361,27 @@ input[type=password]:not(:placeholder-shown) ~ label {
 }
 
 footer#page-end {
+    background: var(--wrap-light);
     text-align: center;
     position: relative;
+    height: 100px;
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
 }
 
 
 /* =========================================================================== Material Button Outline
 */
 
-button {
+button,
+input[type="submit"] {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
-    border: 1px solid var(--pink-norm);
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -1078,8 +1392,6 @@ button {
     text-align: center;
     text-overflow: ellipsis;
     text-transform: uppercase;
-    color: #fff;
-    background-color: var(--pink-norm);
     font-family: inherit;
     font-size: 14px;
     font-weight: 600;
@@ -1089,21 +1401,23 @@ button {
     cursor: pointer;
     transition: 0.15s;
 }
-button::-moz-focus-inner {
+button::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
     border: none;
 }
-button::before {
+button::before,
+input[type="submit"]::before {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: var(--wrap-light);
     opacity: 0;
     transition: opacity 0.2s;
 }
-button::after {
+button::after,
+input[type="submit"]::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -1114,29 +1428,25 @@ button::after {
     padding: 50%;
     width: 38px;
     height: 38px;
-    background-color: var(--wrap-light);
     opacity: 0;
     transform: translate(-50%, -50%) scale(1);
     transition: opacity 0.7s, transform 0.4s;
 }
-button:hover,
-button:focus {
-    background-color: var(--pink-dark);
-    border-color: var(--pink-dark);
-}
-button:hover::before {
+button:hover::before,
+input[type="submit"]:hover::before {
     opacity: 0.08;
 }
-button:focus::before {
+button:focus::before,
+input[type="submit"]:focus::before {
     opacity: 0.24;
 }
-button:hover:focus::before {
-    opacity: 0.3;
+button:hover:focus::before,
+input[type="submit"]:hover:focus::before {
+    opacity: 0.36;
 }
-button:active {
-}
-button:active::after {
-    opacity: 0.32;
+button:active::after,
+input[type="submit"]:active::after {
+    opacity: 0.7;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0s;
 }
@@ -1151,7 +1461,6 @@ nav.pagi > ul.pages > li > a {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
-    border: 1px solid var(--pink-norm);
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -1162,8 +1471,6 @@ nav.pagi > ul.pages > li > a {
     text-align: center;
     text-overflow: ellipsis;
     text-transform: uppercase;
-    color: var(--pink-norm);
-    /*background-color: var(--pink-norm);*/
     font-family: inherit;
     font-size: 14px;
     font-weight: 600;
@@ -1187,7 +1494,6 @@ nav.pagi > ul.pages > li > a::before {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: var(--wrap-light);
     opacity: 0;
     transition: opacity 0.2s;
 }
@@ -1204,22 +1510,10 @@ nav.pagi > ul.pages > li > a::after {
     padding: 50%;
     width: 38px;
     height: 38px;
-    background-color: #fff;
     opacity: 0;
     transform: translate(-50%, -50%) scale(1);
     transition: opacity 0.7s, transform 0.5s;
 }
-a.comment-reply-link:hover,
-a.comment-reply-link:focus,
-a#cancel-comment-reply-link:hover,
-a#cancel-comment-reply-link:focus,
-nav.pagi > ul.pages > li > a:hover,
-nav.pagi > ul.pages > li > a:focus {
-    background-color: var(--pink-norm);
-    border-color: var(--pink-norm);
-    color: #fff;
-}
-
 a.comment-reply-link:hover::before,
 a#cancel-comment-reply-link:hover::before,
 nav.pagi > ul.pages > li > a:hover::before {
@@ -1234,8 +1528,6 @@ a.comment-reply-link:hover:focus::before,
 a#cancel-comment-reply-link:hover:focus::before,
 nav.pagi > ul.pages > li > a:hover:focus::before {
     opacity: 0.36;
-}
-a.comment-reply-link:active {
 }
 a.comment-reply-link:active::after,
 a#cancel-comment-reply-link:active::after,

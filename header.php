@@ -42,4 +42,4 @@
                 </div>
             </div>
         </header>
-        <div id="container">
+        <div id="container" <?php if ( is_front_page() ) : ?>class="cover"<?php endif; ?>>

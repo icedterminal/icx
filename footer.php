@@ -7,5 +7,13 @@
 </div>
 <?php wp_footer(); ?>
 <div class="to-top"><a href="#top">&#xe25a;</a></div>
+<?php if ( is_front_page() ) : ?>
+<section id="section03" class="demo">
+  <a href="#text-4"><span></span>scroll</a>
+</section>
+<script type="text/javascript">
+	var myFullpage = new fullpage('#container');
+</script>
+<?php endif; ?>
 </body>
 </html>
