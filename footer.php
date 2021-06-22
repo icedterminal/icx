@@ -11,9 +11,6 @@
 <section id="section03" class="demo">
   <a href="#text-4"><span></span>scroll</a>
 </section>
-<script type="text/javascript">
-	var myFullpage = new fullpage('#container');
-</script>
 <?php endif; ?>
 </body>
 </html>
