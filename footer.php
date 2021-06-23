@@ -6,8 +6,15 @@
 </footer>
 </div>
 <?php wp_footer(); ?>
-<div class="to-top"><a href="#top">&#xe25a;</a></div>
-<?php if ( is_front_page() ) : ?>
-<?php endif; ?>
+<div id="to-top" class="to-top"><a href="#top">&#xe25a;</a></div>
+<script>
+window.onscroll = function () {
+    if (pageYOffset >= 500) {
+        document.getElementById('to-top').style.visibility = "visible";
+    } else {
+ document.getElementById('to-top').style.visibility = "hidden";
+    }
+};
+</script>
 </body>
 </html>

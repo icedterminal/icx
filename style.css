@@ -161,7 +161,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     a.tag-cloud-link:hover:before {
         border-color:transparent var(--orange-norm) transparent transparent;
     }
-    .post, #sidebar, .related, .pagi, #comments {
+    .post, #sidebar, .related, .pagi, #comments, .widget-text-overlay {
         box-shadow: 0px 1px 4px -1px rgb(0,0,0,40%);
     }
     a.post-edit-link {
@@ -218,6 +218,9 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     .to-top:hover {
         box-shadow: 0px 1px 6px 0px rgba(0,0,0,40%);
+    }
+    footer#page-end {
+        background: var(--wrap-light);
     }
 /* =========================================================================== Material Button Outline
 */
@@ -601,11 +604,13 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         align-items: stretch;
         flex-wrap: wrap;
         width: 96%;
+        min-height: calc(100vh - 260px);
         max-width: 1400px;
         margin: 30px auto;
     }
     #sidebar {
         width: 300px;
+        height: fit-content;
         z-index: 100;
         border-radius: 4px;
     }
@@ -676,7 +681,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     .full {
         width: 100% !important;
-        position: unset;
+        position: relative;
     }
     article#landing {
         border-radius: 4px;
@@ -685,11 +690,36 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     .logo {
         max-width: 360px;
-        height: 100vh;
+        height: calc(100vh - 100px);
         margin: 0px auto;
         position: relative;
         box-sizing: border-box;
-        padding: 100px 0;
+        padding: 70px 0;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+    span.scroll-down {
+        font-family: 'Material Icons';
+        font-size: 32px;
+        position: absolute;
+        bottom: 15px;
+        animation: bounce 3s infinite;
+        color: var(--pink-norm);
+    }
+
+
+    @keyframes bounce {
+        0% {
+            transform: translateY(0%);
+        }
+      
+        50% {
+            transform: translateY(60%);
+        }
+        100% {
+            transform: translateY(0%);
+        }
     }
     #content article:last-child {
         margin: 0px 40px 0px 0px;
@@ -928,56 +958,48 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-tyler-lastovich-699122-scaled.jpg) no-repeat center;
         text-align: right;
         background-attachment: fixed;
-        background-blend-mode: luminosity;
         background-size: cover;
     }
     div#text-5 {
         background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-cottonbro-4553180-scaled.jpg) no-repeat center;
         text-align: left;
         background-attachment: fixed;
-        background-blend-mode: luminosity;
         background-size: cover;
     }
     div#text-6 {
         background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/artiom-vallat-mx9axbKqKW8-unsplash-scaled.jpg) no-repeat center;
         text-align: right;
         background-attachment: fixed;
-        background-blend-mode: luminosity;
         background-size: cover;
     }
     div#text-7 {
         background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/code-1839406_1920.jpg) no-repeat center;
         text-align: left;
         background-attachment: fixed;
-        background-blend-mode: luminosity;
         background-size: cover;
     }
     div#text-8 {
         background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/storage-scaled.jpg) no-repeat center;
         text-align: right;
         background-attachment: fixed;
-        background-blend-mode: luminosity;
         background-size: cover;
     }
     div#text-9 {
         background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-pixabay-270700-scaled.jpg) no-repeat center;
         text-align: left;
         background-attachment: fixed;
-        background-blend-mode: luminosity;
         background-size: cover;
     }
     div#text-10 {
         background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-martin-lopez-2225617-scaled.jpg) no-repeat center;
         text-align: right;
         background-attachment: fixed;
-        background-blend-mode: luminosity;
         background-size: cover;
     }
     div#text-11 {
         background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/mesh-wifi-scaled.jpg) no-repeat left;
         text-align: left;
         background-attachment: fixed;
-        background-blend-mode: luminosity;
         background-size: cover;
     }
     .widget-text-overlay {
@@ -988,6 +1010,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         box-sizing: border-box;
         padding: 40px;
         margin: 30px;
+        border-radius: 4px;
     }
     .wp-caption {
         width: 100% !important;
@@ -1126,7 +1149,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         align-content: center;
         flex-direction: column;
         text-align: center;
-        transition: 0.2s;
+        visibility: hidden;
     }
     div.to-top > a {
         width: 100%;
@@ -1180,7 +1203,6 @@ body {
 }
 canvas {
     display: block;
-    vertical-align: bottom;
 } 
 #particles-js {
     position: fixed;
@@ -1273,7 +1295,6 @@ input[type=password]:not(:placeholder-shown) ~ label {
 }
 
 footer#page-end {
-    background: var(--wrap-light);
     text-align: center;
     position: relative;
     height: 100px;
