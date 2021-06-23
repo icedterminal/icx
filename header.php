@@ -19,7 +19,7 @@
         <header id="top" class="clean">
             <div id="branding">
                 <div id="site-title">
-                    <?php if ( is_home() || is_search() || is_archive() || is_page( array( 'help' ) ) ) : ?>
+                    <?php if ( ! is_front_page() ) : ?>
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home">
                         <?php echo esc_html( get_bloginfo( 'name' ) ); ?>
                     </a>
