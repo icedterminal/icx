@@ -6,15 +6,28 @@
 </footer>
 </div>
 <?php wp_footer(); ?>
-<div id="to-top" class="to-top"><a href="#top">&#xe25a;</a></div>
+<div id="to-top" class="to-top"><a href="#">&#xe25a;</a></div>
+<?php if ( is_front_page() ) : ?>
 <script>
 window.onscroll = function () {
-    if (pageYOffset >= 500) {
-        document.getElementById('to-top').style.visibility = "visible";
+    if (pageYOffset >= 36) {
+        document.getElementById('scroll-down').style.visibility = "hidden";
     } else {
- document.getElementById('to-top').style.visibility = "hidden";
+        document.getElementById('scroll-down').style.visibility = "visible";
     }
 };
+</script>
+<?php endif; ?>
+<script>
+jQuery(window).on("scroll", function($) {
+    if (pageYOffset >= 36) {
+        jQuery(".clean").addClass("scrolled");
+        document.getElementById('to-top').style.visibility = "visible";
+    } else {
+        jQuery(".clean").removeClass("scrolled");
+        document.getElementById('to-top').style.visibility = "hidden";
+    }
+});
 </script>
 </body>
 </html>

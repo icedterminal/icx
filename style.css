@@ -102,8 +102,12 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         color: var(--orange-norm);
     }
     header#top {
-        background: hsl(0, 0%, 60%);
+        transition: 0.2s;
+    }
+    header.scrolled {
+        background: var(--wrap-light);
         box-shadow: 0px 1px 4px -1px rgb(0,0,0,40%);
+        transition: 0.2s;
     }
     article {
         background: var(--wrap-light);
@@ -140,10 +144,10 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     nav.pagi > ul.pages > li.active > a {
         color: var(--text-light);
         border: transparent;
-    }
+    }/*
     .links {
         background: #7d7d7d;
-    }
+    }*/
     #sidebar {
         background: var(--wrap-light);
     }
@@ -161,7 +165,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     a.tag-cloud-link:hover:before {
         border-color:transparent var(--orange-norm) transparent transparent;
     }
-    .post, #sidebar, .related, .pagi, #comments, .widget-text-overlay {
+    .post, #sidebar, .related, .pagi, #comments, .widget {
         box-shadow: 0px 1px 4px -1px rgb(0,0,0,40%);
     }
     a.post-edit-link {
@@ -463,12 +467,16 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     header#top {
         display: grid;
-        position: relative;
+        position: sticky;
         height: 100px;
         width: 100%;
         grid-template-columns: auto;
         grid-template-rows: 50px 50px;
+        z-index: 200;
+        top: 0;
     }
+
+
     .sub-grid {
         display: grid;
         grid-template-columns: auto 340px;
@@ -511,7 +519,6 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     /* main level link */
     .links a {
         font-weight: bold;
-        color: #e7e5e5;
         text-decoration: none;
         display: block;
         padding:  8px 20px;
@@ -604,15 +611,17 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         align-items: stretch;
         flex-wrap: wrap;
         width: 96%;
-        min-height: calc(100vh - 260px);
+        min-height: calc(100vh - 240px);
         max-width: 1400px;
-        margin: 30px auto;
+        margin: 0 auto;
+        padding: 30px 0 0;
     }
     #sidebar {
         width: 300px;
         height: fit-content;
         z-index: 100;
         border-radius: 4px;
+        margin-bottom: 40px;
     }
     ul.items {
         list-style-type: none;
@@ -680,8 +689,8 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         width: calc(100% - 300px);
     }
     .full {
+        /* do not put relative position here. blocks particales */
         width: 100% !important;
-        position: relative;
     }
     article#landing {
         border-radius: 4px;
@@ -690,14 +699,15 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     .logo {
         max-width: 360px;
-        height: calc(100vh - 100px);
+        height: calc(100vh - 130px);
         margin: 0px auto;
         position: relative;
         box-sizing: border-box;
         padding: 70px 0;
         display: flex;
-        align-content: center;
+        align-content: flex-start;
         justify-content: center;
+        align-items: stretch;
     }
     span.scroll-down {
         font-family: 'Material Icons';
@@ -785,6 +795,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         position: relative;
         scroll-behavior: smooth;
         border-radius: 4px;
+        scroll-margin-top: 100px;
     }
     header.title {
         margin: 20px 30px;
@@ -935,88 +946,83 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         max-width: 100% !important;
     }
     .front-widget-area {
-        margin: 0;
+        margin: 0 auto 60px;
         padding: 0;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        align-items: stretch;
+        align-items: center;
         align-content: center;
+        max-width: 1600px;
     }
     .widget {
         display: block;
         position: relative;
         padding: 0;
-        margin: 0;
-        width: 100%;
-        min-height: 100vh;
+        margin: 0px 12px 30px;
+        width: 360px;
         box-sizing: border-box;
-        border-radius: 0;
-    }
-    div#text-4 {
-        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-tyler-lastovich-699122-scaled.jpg) no-repeat center;
-        text-align: right;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-    div#text-5 {
-        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-cottonbro-4553180-scaled.jpg) no-repeat center;
-        text-align: left;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-    div#text-6 {
-        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/artiom-vallat-mx9axbKqKW8-unsplash-scaled.jpg) no-repeat center;
-        text-align: right;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-    div#text-7 {
-        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/code-1839406_1920.jpg) no-repeat center;
-        text-align: left;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-    div#text-8 {
-        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/storage-scaled.jpg) no-repeat center;
-        text-align: right;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-    div#text-9 {
-        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-pixabay-270700-scaled.jpg) no-repeat center;
-        text-align: left;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-    div#text-10 {
-        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-martin-lopez-2225617-scaled.jpg) no-repeat center;
-        text-align: right;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-    div#text-11 {
-        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/mesh-wifi-scaled.jpg) no-repeat left;
-        text-align: left;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-    .widget-text-overlay {
-        background: var(--wrap-light);
-        width: 30%;
-        display: inline-block;
-        height: auto;
-        box-sizing: border-box;
-        padding: 40px;
-        margin: 30px;
         border-radius: 4px;
+        transition: all 0.3s ease-in-out;
+    }
+    .widget:hover > .widget-cover {
+        background-size: 110% !important;
+    }
+    .widget-cover {
+        height: 180px;
+        border-radius: 4px 4px 0 0;
+        transition: background-size 0.3s ease-in-out;
+    }
+    .widget-text {
+        height: 180px;
+        box-sizing: border-box;
+    }
+    .widget-title-holder {
+        padding: 16px 16px 0px;
+    }
+    .textwidget {
+        padding: 16px;
+    }
+    div#text-4 > .widget-cover {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-tyler-lastovich-699122-scaled.jpg) no-repeat center;
+        background-size: 100%;
+    }
+    div#text-5 > .widget-cover {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-cottonbro-4553180-scaled.jpg) no-repeat center;
+        background-size: 100%;
+    }
+    div#text-6 > .widget-cover {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/artiom-vallat-mx9axbKqKW8-unsplash-scaled.jpg) no-repeat center;
+        background-size: 100%;
+    }
+    div#text-7 > .widget-cover {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/code-1839406_1920.jpg) no-repeat center;
+        background-size: 100%;
+    }
+    div#text-8 > .widget-cover {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/storage-scaled.jpg) no-repeat center;
+        background-size: 100%;
+    }
+    div#text-9 > .widget-cover {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-pixabay-270700-scaled.jpg) no-repeat center;
+        background-size: 100%;
+    }
+    div#text-10 > .widget-cover {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/pexels-martin-lopez-2225617-scaled.jpg) no-repeat center;
+        background-size: 100%;
+    }
+    div#text-11 > .widget-cover {
+        background: var(--wrap-light) url(http://192.168.1.66/wp-content/uploads/2021/06/mesh-wifi-scaled.jpg) no-repeat left;
+        background-size: 100%;
+    }
+    .widget-text {
     }
     .wp-caption {
         width: 100% !important;
     }
     .related {
-        margin: 40px 40px 0 0;
+        margin: 40px 40px 40px 0;
         padding: 40px;
         z-index: 100;
         position: relative;
@@ -1092,6 +1098,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         padding: 12px 16px;
         position: relative;
         border-radius: 4px;
+        scroll-margin-top: 100px;
     }
     div.comment-body > p {
         padding: 30px 20px;
@@ -1115,6 +1122,9 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         padding: 4px 9px;
         width: fit-content;
     }*/
+    .comment {
+        scroll-margin-top: 100px;
+    }
     .commentmetadata {
         font-style: italic;
         position: absolute;

@@ -139,10 +139,10 @@ function register_front_widget_area() {
         array(
             'id' => 'front-widget-area',
             'name' => esc_html__( 'Front Page Widget', 'icx' ),
-            'description' => esc_html__( 'For full width front page template.', 'icx' ),
+            'description' => esc_html__( 'Card widgets.', 'icx' ),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget' => '</div></div>',
-            'before_title' => '<div class="widget-text-overlay"><div class="widget-title-holder"><h3 class="widget-title">',
+            'before_title' => '<div class="widget-cover"></div><div class="widget-text"><div class="widget-title-holder"><h3 class="widget-title">',
             'after_title' => '</h3></div>'
         )
     );
@@ -179,6 +179,11 @@ add_action( 'wp_footer', 'particles_settings', 4 );
 function particles_settings() {
 printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/particles.settings.js' );
 }
+// clean header look
+//add_action( 'wp_footer', 'clean_header', 5 );
+//function clean_header() {
+//printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/headerclean.js' );
+//}
 
 add_action( 'wp_head', 'icx_pingback_header' );
 function icx_pingback_header() {

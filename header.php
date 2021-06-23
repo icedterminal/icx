@@ -16,14 +16,14 @@
 <body <?php body_class(); ?>>
 <div id="particles-js"></div>
     <div id="wrapper" class="hfeed">
-        <header id="top">
+        <header id="top" class="clean">
             <div id="branding">
                 <div id="site-title">
-                    <?php //if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; } ?>
+                    <?php if ( is_home() || is_search() || is_archive() || is_page( array( 'help' ) ) ) : ?>
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home">
                         <?php echo esc_html( get_bloginfo( 'name' ) ); ?>
                     </a>
-                    <?php //if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '</h1>'; } ?>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="sub-grid">
