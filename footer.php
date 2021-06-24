@@ -7,27 +7,28 @@
 </div>
 <?php wp_footer(); ?>
 <div id="to-top" class="to-top"><a href="#">&#xe25a;</a></div>
+<?php if ( is_front_page() ) : ?>
 <script>
 window.onscroll = function () {
     if (pageYOffset >= 36) {
-        document.getElementById('to-top').style.visibility = "visible";
+        document.getElementById('scroll-down').style.visibility = "hidden";
     } else {
-        document.getElementById('to-top').style.visibility = "hidden";
+        document.getElementById('scroll-down').style.visibility = "visible";
     }
 };
 </script>
-<?php if ( is_front_page() ) : ?>
+<?php endif; ?>
 <script>
 jQuery(window).on("scroll", function($) {
     if (pageYOffset >= 36) {
         jQuery(".clean").addClass("scrolled");
-        document.getElementById('scroll-down').style.visibility = "hidden";
+        document.getElementById('to-top').style.visibility = "visible";
     } else {
         jQuery(".clean").removeClass("scrolled");
-        document.getElementById('scroll-down').style.visibility = "visible";
+        document.getElementById('to-top').style.visibility = "hidden";
     }
 });
 </script>
-<?php endif; ?>
+
 </body>
 </html>

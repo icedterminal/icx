@@ -17,11 +17,11 @@
 <div id="particles-js"></div>
     <div id="wrapper" class="hfeed">
         <header id="top" class="clean">
-            <div id="branding">
+            <div id="brand">
                 <div id="site-title">
                     <?php if ( ! is_front_page() ) : ?>
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home">
-                        <?php echo esc_html( get_bloginfo( 'name' ) ); ?>
+                        
                     </a>
                     <?php endif; ?>
                 </div>
@@ -37,7 +37,7 @@
                             <input type="text" id="search-field" class="search-field" placeholder="search" name="s">
                             <label for="search-field">Search</label>
                         </div>
-                        <button type="submit" class="search-submit mat-btn-outline"><span>Search</span></button>
+                        <!--<button type="submit" class="search-submit mat-btn-outline"><span>Search</span></button>-->
                     </form>
                 </div>
             </div>

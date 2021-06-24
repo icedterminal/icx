@@ -67,27 +67,6 @@ function addDivToImage( $content ) {
 }
 add_filter( 'the_content', 'addDivToImage' );
 
-// Add caption below inserted post images
-
-
-// Add placeholder to comment form fields.
-function comment_placeholders( $fields ) {
-    $fields['author'] = str_replace( '<input', '<input placeholder="' . _x( 'First and last name or a nick name', 'comment form placeholder', 'icx' ) . '"', $fields['author'] );
-    $fields['email'] = str_replace(
-        '<input id="email" name="email" type="text"',
-        '<input type="text" placeholder="contact@example.com"  id="email" name="email"',
-        $fields['email']
-    );
-    $fields['url'] = str_replace(
-        '<input id="url" name="url" type="text"',
-        '<input type="text" placeholder="http://example.com" id="url" name="url"',
-        $fields['url']
-    );
-
-    return $fields;
-}
-add_filter( 'comment_form_default_fields', 'comment_placeholders' );
-
 // Sidebar widget
 function icx_widgets_init() {
 register_sidebar( array(
@@ -179,11 +158,7 @@ add_action( 'wp_footer', 'particles_settings', 4 );
 function particles_settings() {
 printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/particles.settings.js' );
 }
-// clean header look
-//add_action( 'wp_footer', 'clean_header', 5 );
-//function clean_header() {
-//printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/headerclean.js' );
-//}
+
 
 add_action( 'wp_head', 'icx_pingback_header' );
 function icx_pingback_header() {
@@ -213,6 +188,27 @@ return count( $comments_by_type['comment'] );
 return $count;
 }
 }
+
+// arrange comment form
+function move_comment_field( $fields ) {
+    //$comment_field = $fields['comment'];
+    unset($fields['comment']);
+    unset($fields['url']);
+    unset($fields['author']);
+    unset($fields['email']);
+    unset($fields['cookies']);
+    return $fields;
+}
+add_filter( 'comment_form_fields', 'move_comment_field' );
+
+function modify_comment_form_input($arg) {
+    $arg['comment_author'] = '<p class="comment-form-author"><input type="text" id="author" name="author" require="required" placeholder="your name"><label for="author">' . _x( 'Name *', 'icx' ) . '</label></p>';
+    $arg['comment_email'] = '<p class="comment-form-email"><input type="text" id="email" name="email" require="required" placeholder="your email"><label for="email">' . _x( 'Email *', 'icx' ) . '</label></p>';
+    $arg['comment_field'] = '<p class="comment-form-comment"><textarea id="comment" name="comment" required="required" placeholder="your comment"></textarea><label for="comment">' . _x( 'Your comment *', 'icx' ) . '</label></p>';
+    $arg['comment_cookies'] = '<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"><label for="wp-comment-cookies-consent">' . _x( 'Save name and email for future comments?', 'icx' ) . '</label></p>';
+    return $arg;
+}
+add_filter('comment_form_fields', 'modify_comment_form_input');
 
 // ************************************************************************************************ my shit is below this.
 // Remove all of the emoji
