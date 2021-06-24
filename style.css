@@ -732,6 +732,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         border-radius: 4px;
         background: none;
         margin: 0 auto !important;
+        position: unset;
     }
     article {
         position: relative;
@@ -769,10 +770,10 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         100% {
             transform: translateY(0%);
         }
-    }
+    }/*
     #content article:last-child {
         margin: 0px 40px 0px 0px;
-    }
+    }*/
     article.has-post-thumbnail > div.texts.listing {
         display: inline-block;
         vertical-align: top;
