@@ -460,8 +460,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 
     .sub-grid {
         display: grid;
-        grid-template-columns: auto 300px;
-        justify-items: center;
+        grid-template-columns: 50% 50%;
     }
     #brand {
         display: flex;
@@ -483,17 +482,106 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 
 
 
-    .menu {
+    nav.menu {
         display: block;
-        margin: 0 auto;
-        width: 100%;
+        margin: 0;
+        position: relative;
+        -webkit-user-select: none;
+        user-select: none;
     }
+    nav.menu input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        
+        cursor: pointer;
+        
+        opacity: 0; /* hide this */
+        z-index: 260; /* and place it over the hamburger */
+        
+        -webkit-touch-callout: none;
+    }
+
+    nav.menu span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        
+        background: #cdcdcd;
+        border-radius: 3px;
+        
+        z-index: 255;
+        
+        transform-origin: 4px 0px;
+        
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                    background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                    opacity 0.55s ease;
+    }
+    
+    nav.menu span:first-child {
+        transform-origin: 0% 0%;
+    }
+    
+    nav.menu span:nth-last-child(2) {
+        transform-origin: 0% 100%;
+    }
+    
+    /* 
+     * Transform all the slices of hamburger
+     * into a crossmark.
+     */
+     nav.menu input:checked ~ span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: #232323;
+    }
+    
+    /*
+     * But let's hide the middle one.
+     */
+     nav.menu input:checked ~ span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+    
+    /*
+     * Ohyeah and the last one should go the other direction
+     */
+    nav.menu input:checked ~ span:nth-last-child(2) {
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+
+    nav.menu input:checked ~ ul {
+        transform: none;
+    }
+
     .links {
-        margin: 0 50px;
-        padding: 0;
-        /*display: inline-block;*/
-        text-transform: uppercase;
+      position: absolute;
+      width: 300px;
+      margin: -100px 0 0 -50px;
+      padding: 50px;
+      padding-top: 125px;
+      
+      background: #ededed;
+      list-style-type: none;
+      -webkit-font-smoothing: antialiased;
+      /* to stop flickering of text in safari */
+      
+      transform-origin: 0% 0%;
+      transform: translate(-100%, 0);
+      
+      transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+      text-transform: uppercase;
+      height: 100vh;
+      z-index: 250;
     }
+
     .links:after {
         content: ".";
         display: block;
@@ -1398,17 +1486,29 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 
 
 
-
+    
     .menu {
-        display: block;
-        margin: 0 auto;
-        width: 100%;
+        display: block !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+    nav.menu > span {
+        display: none;
     }
     .links {
         margin: 0 50px;
         padding: 0;
-        /*display: inline-block;*/
         text-transform: uppercase;
+        position: unset;
+        width: auto;
+        height: unset;
+        background: #ededed;
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        transform-origin: unset;
+        transform: unset;
+        transition: unset;
+        background: unset;
     }
     .links:after {
         content: ".";

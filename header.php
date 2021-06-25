@@ -28,6 +28,7 @@
             </div>
             <div class="sub-grid">
                 <nav class="menu">
+                    <input type="checkbox" /><span></span><span></span><span></span>
                     <?php //wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
                     <?php wp_nav_menu( array( 'name' => 'main-menu', 'container' => 'ul', 'menu_class' => 'links' ) ); ?>
                 </nav>
