@@ -189,26 +189,34 @@ return $count;
 }
 }
 
-// arrange comment form
+add_filter( 'comment_form_fields', 'move_comment_field' );
 function move_comment_field( $fields ) {
-    //$comment_field = $fields['comment'];
-    unset($fields['comment']);
-    unset($fields['url']);
-    unset($fields['author']);
-    unset($fields['email']);
-    unset($fields['cookies']);
+    $comment_field = $fields['comment'];
+    unset( $fields['comment'] );
+    $fields['comment'] = $comment_field;
     return $fields;
 }
-add_filter( 'comment_form_fields', 'move_comment_field' );
 
-function modify_comment_form_input($arg) {
-    $arg['comment_author'] = '<p class="comment-form-author"><input type="text" id="author" name="author" require="required" placeholder="your name"><label for="author">' . _x( 'Name *', 'icx' ) . '</label></p>';
-    $arg['comment_email'] = '<p class="comment-form-email"><input type="text" id="email" name="email" require="required" placeholder="your email"><label for="email">' . _x( 'Email *', 'icx' ) . '</label></p>';
-    $arg['comment_field'] = '<p class="comment-form-comment"><textarea id="comment" name="comment" required="required" placeholder="your comment"></textarea><label for="comment">' . _x( 'Your comment *', 'icx' ) . '</label></p>';
-    $arg['comment_cookies'] = '<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"><label for="wp-comment-cookies-consent">' . _x( 'Save name and email for future comments?', 'icx' ) . '</label></p>';
-    return $arg;
-}
-add_filter('comment_form_fields', 'modify_comment_form_input');
+// arrange comment form
+//function move_comment_field( $fields ) {
+//    $comment_field = $fields['comment'];
+//    unset($fields['comment']);
+    //unset($fields['url']);
+    //unset($fields['author']);
+    //unset($fields['email']);
+    //unset($fields['cookies']);
+//    return $fields;
+//}
+//add_filter( 'comment_form_fields', 'move_comment_field' );
+
+//function modify_comment_form_input($arg) {
+//    $arg['comment_author'] = '<p class="comment-form-author"><input type="text" id="author" name="author" require="required" placeholder="your name"><label for="author">' . _x( 'Name *', 'icx' ) . '</label></p>';
+//    $arg['comment_email'] = '<p class="comment-form-email"><input type="text" id="email" name="email" require="required" placeholder="your email"><label for="email">' . _x( 'Email *', 'icx' ) . '</label></p>';
+//    $arg['comment_field'] = '<p class="comment-form-comment"><textarea id="comment" name="comment" required="required" placeholder="your comment"></textarea><label for="comment">' . _x( 'Your comment *', 'icx' ) . '</label></p>';
+//    $arg['comment_cookies'] = '<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"><label for="wp-comment-cookies-consent">' . _x( 'Save name and email for future comments?', 'icx' ) . '</label></p>';
+//    return $arg;
+//}
+//add_filter('comment_form_fields', 'modify_comment_form_input');
 
 // ************************************************************************************************ my shit is below this.
 // Remove all of the emoji
