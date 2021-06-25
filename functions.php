@@ -12,7 +12,12 @@ register_nav_menus( array( 'main-menu' => esc_html__( 'Main Menu', 'icx' ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'icx_load_scripts' );
 function icx_load_scripts() {
-wp_enqueue_style( 'icx-style', get_stylesheet_uri() );
+// default line below
+//wp_enqueue_style( 'icx-style', get_stylesheet_uri() );
+// development line below. this forces a new download every single time for devices that where cache cannot be controlled easily.
+wp_enqueue_style('icx-style', get_stylesheet_directory_uri() .'/style.css', array(), rand(0,10000) );
+// production line below
+//wp_enqueue_style('icx-style', get_stylesheet_directory_uri() .'/style.css', array(), '1.0' );
 wp_enqueue_script( 'jquery' );
 }
 add_action( 'wp_footer', 'icx_footer_scripts' );
@@ -201,7 +206,7 @@ function custom_comment_field( $fields ) {
     unset($fields['email']);
     unset($fields['url']);
     unset($fields['comment']);
-    unset($fields['cookies']);
+    //unset($fields['cookies']);
     // Display the fields to your own taste.
     // The order in which you place them will determine in what order they are displayed.
     // Default IDs, Classes, For, and Names MUST be included.
@@ -209,6 +214,7 @@ function custom_comment_field( $fields ) {
     $fields['author'] = '<p class="comment-form-author"><input type="text" id="author" name="author" require="required" placeholder="your name"><label for="author">Name *</label></p>';
     $fields['email'] = '<p class="comment-form-email"><input type="text" id="email" name="email" require="required" placeholder="your email"><label for="email">Email *</label></p>';
     $fields['comment'] = '<p class="comment-form-comment"><textarea id="comment" name="comment" required="required" placeholder="your comment"></textarea><label for="comment">Your comment *</label></p>';
+    $fields['comment_notes_after'] = '<p class="markup">Simple HTML markup is supported. <span title="Emphasis (Italics)">&lt;em&gt;<span> <span title="Strong (Bold)">&lt;strong&gt;<span> <span title="Text Quote">&lt;blockquote&gt;<span>.</p>';
     //$fields['cookies'] = '<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"><label for="wp-comment-cookies-consent">Save name and email for future comments?</label></p>';
     return $fields;
 }
