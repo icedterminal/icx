@@ -189,11 +189,27 @@ return $count;
 }
 }
 
-add_filter( 'comment_form_fields', 'move_comment_field' );
-function move_comment_field( $fields ) {
+add_filter( 'comment_form_fields', 'custom_comment_field' );
+function custom_comment_field( $fields ) {
+    // What fields you want to control.
+    $comment_field = $fields['author'];
+    $comment_field = $fields['email'];
     $comment_field = $fields['comment'];
-    unset( $fields['comment'] );
-    $fields['comment'] = $comment_field;
+    //$comment_field = $fields['cookies'];
+    // The fields you want to unset (remove).
+    unset($fields['author']);
+    unset($fields['email']);
+    unset($fields['url']);
+    unset($fields['comment']);
+    unset($fields['cookies']);
+    // Display the fields to your own taste.
+    // The order in which you place them will determine in what order they are displayed.
+    // Default IDs, Classes, For, and Names MUST be included.
+    // You may add addtional classes and move the <label> to be after the input/textarea for CSS reasons (e.g. Material design) 
+    $fields['author'] = '<p class="comment-form-author"><input type="text" id="author" name="author" require="required" placeholder="your name"><label for="author">Name *</label></p>';
+    $fields['email'] = '<p class="comment-form-email"><input type="text" id="email" name="email" require="required" placeholder="your email"><label for="email">Email *</label></p>';
+    $fields['comment'] = '<p class="comment-form-comment"><textarea id="comment" name="comment" required="required" placeholder="your comment"></textarea><label for="comment">Your comment *</label></p>';
+    //$fields['cookies'] = '<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"><label for="wp-comment-cookies-consent">Save name and email for future comments?</label></p>';
     return $fields;
 }
 
