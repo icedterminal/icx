@@ -31,7 +31,7 @@
                     <input type="checkbox" /><span></span><span></span><span></span>
                     <?php //wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
                     <?php wp_nav_menu( array( 'name' => 'main-menu', 'container' => 'ul', 'menu_class' => 'links' ) ); ?>
-                </nav>
+                </nav><?php if ( is_home() || is_archive() || is_search() || is_singular('post') ) : ?>
                 <div id="search">
                     <form role="search" method="get" class="search-form" action="<?php echo get_site_url(); ?>">
                         <div class="material_input">
@@ -40,7 +40,7 @@
                         </div>
                         <!--<button type="submit" class="search-submit mat-btn-outline"><span>Search</span></button>-->
                     </form>
-                </div>
+                </div><?php endif; ?>
             </div>
         </header>
         <div id="container" <?php if ( is_front_page() ) : ?>class="cover"<?php endif; ?>>
