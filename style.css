@@ -980,7 +980,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
     }
     .entry-content-full {
         margin: 0 auto;
-        padding: 0 40px 15px;
+        padding: 0 10px 15px;
     }
     div.entry-content > p,
     div.entry-content-full > P {
@@ -1115,7 +1115,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         position: relative;
         padding: 0;
         margin: 0px 12px 30px;
-        width: 360px;
+        width: 100%;
         box-sizing: border-box;
         border-radius: 4px;
         transition: all 0.3s ease-in-out;
@@ -1654,7 +1654,9 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 
 *********************************************************************************************************/
 @media (min-width:481px) {
-
+    .widget {
+        width: 420px;
+    }
 }
 
 /*********************************************************************************************************
@@ -1665,7 +1667,9 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 
 *********************************************************************************************************/
 @media (min-width:641px) {
-
+    .widget {
+        width: 320px;
+    }
 }
 
 /*********************************************************************************************************
