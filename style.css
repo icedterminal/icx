@@ -740,7 +740,7 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         flex-direction: column;
     }
     #sidebar {
-        width: 300px;
+        width: 100%;
         height: fit-content;
         z-index: 100;
         border-radius: 4px;
@@ -1667,6 +1667,13 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 
 *********************************************************************************************************/
 @media (min-width:641px) {
+
+    .post {
+        margin: 0 0 40px 0;
+    }
+    .pagi {
+        margin: 0;
+    }
     .widget {
         width: 320px;
     }
