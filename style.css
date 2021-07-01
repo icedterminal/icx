@@ -945,7 +945,7 @@ div.entry-content > p {
     box-sizing: border-box;
     line-height: 0;
     background-position: center !important;
-    background-size: 100% !important;
+    background-size: 105% !important;
     background-repeat: no-repeat !important;
     border-radius: 4px 0px 0px 4px;
     transition: all 0.3s ease-in-out;
@@ -959,7 +959,7 @@ div.entry-content > p {
     border-radius: 4px 0px 0px 4px;
 }
 .post:hover > .thumb {
-    background-size: 110% !important;
+    background-size: 115% !important;
 }
 .texts {
     max-width: 1260px;
