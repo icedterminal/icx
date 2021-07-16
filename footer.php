@@ -20,7 +20,7 @@ window.onscroll = function () {
 <?php endif; ?>
 <script>
 jQuery(window).on("scroll", function($) {
-    if (pageYOffset >= 36) {
+    if (pageYOffset >= 10) {
         jQuery(".clean").addClass("scrolled");
         document.getElementById('to-top').style.visibility = "visible";
     } else {

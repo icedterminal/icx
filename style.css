@@ -105,10 +105,9 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
         transition: 0.2s;
     }
     header.scrolled {
-        background: var(--wrap-light);
         box-shadow: 0px 1px 4px -1px rgb(0,0,0,40%);
         transition: 0.2s;
-        top: -40px !important;
+        /*top: -40px !important;*/
     }
     article {
         background: var(--wrap-light);
@@ -425,8 +424,8 @@ that support live color picking and previews. Such as VS Code and Dreamweaver.
 		scroll-behavior: auto;
 	}
 }
-/* Account for the admin bar when logged in.
-body.admin-bar #top { top: 32px; } */
+/* Account for the admin bar when logged in. */
+body.admin-bar #top { top: 32px; }
 html {
     /* Safari does not work */
     scroll-behavior: smooth;
@@ -525,14 +524,14 @@ li > ul {
     list-style-type: circle;
 }
 header#top {
-    display: grid;
-    position: sticky;
-    height: 100px;
+    display: block;
+    position: fixed;
+    height: 80px;
     width: 100%;
-    grid-template-columns: auto;
-    grid-template-rows: 50px 50px;
     z-index: 200;
     top: 0;
+    background: var(--wrap-light);
+    box-shadow: 0px 1px 4px -1px rgb(0,0,0,40%);
 }
 
 
@@ -540,6 +539,8 @@ header#top {
     display: grid;
     grid-template-columns: auto 300px;
     justify-items: center;
+    align-items: center;
+    height: 80px;
 }
 #brand {
     display: flex;
@@ -703,7 +704,7 @@ ul.sub-menu > li.menu-item:last-child > a {
     width: 80%;
     min-height: calc(100vh - 230px);
     margin: 0 auto;
-    padding: 30px 0 0;
+    padding: 130px 0 0;
 }
 #sidebar {
     width: 300px;

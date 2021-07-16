@@ -153,15 +153,19 @@ add_action( 'wp_footer', 'player_size', 2 );
 function player_size() {
 printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/playersize.js' );
 }
-// Particles framework animation
+// Particles framework animation. Only showing on front page.
 add_action( 'wp_footer', 'particles', 3 );
 function particles() {
+if ( is_front_page() ) :
 printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/tsparticles.min.js' );
+endif;
 }
-// Particles framework animation
+// Particles framework animation. Only showing on front page.
 add_action( 'wp_footer', 'particles_settings', 4 );
 function particles_settings() {
+if ( is_front_page() ) :
 printf( '<script type="text/javascript" src="%s"></script>' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/js/particles.settings.js' );
+endif;
 }
 
 

@@ -14,9 +14,11 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<?php if ( is_front_page() ) : ?>
 <div id="particles-js"></div>
+<?php endif; ?>
     <div id="wrapper" class="hfeed">
-        <header id="top" class="clean">
+        <header id="top" class="clean"><!--
             <div id="brand">
                 <div id="site-title">
                     <?php if ( ! is_front_page() ) : ?>
@@ -25,7 +27,7 @@
                     </a>
                     <?php endif; ?>
                 </div>
-            </div>
+            </div>-->
             <div class="sub-grid">
                 <nav class="menu">
                     <input type="checkbox" /><span></span><span></span><span></span>
