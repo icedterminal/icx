@@ -6,7 +6,7 @@
             <h1 class="entry-title"><?php esc_html_e( '', 'icx' ); ?></h1>
         </header>
         <div class="entry-content">
-            <p><?php esc_html_e( 'Hmmm. Nothing here.', 'icx' ); ?></p>
+            <p><?php esc_html_e( 'insert random not fodun string here for fun.', 'icx' ); ?></p>
             <p>If you think something should be here you can report this error.</p>
         </div>
     </article>
