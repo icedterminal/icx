@@ -7,7 +7,7 @@
         </header>
         <div class="entry-content">
             <p><?php esc_html_e( 'Hmmm. Nothing here.', 'icx' ); ?></p>
-            <p>If you think something should be here you can report this error to the site operater. Be sure to give them this: <code><?php echo( session_id() ); ?></code></p>
+            <p>If you think something should be here you can report this error.</p>
         </div>
     </article>
 </main>
