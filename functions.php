@@ -129,6 +129,20 @@ function blankslate_widgets_init()
         'after_title' => '</h3>',
     ));
 }
+// Full Width Front Page Widgets
+function register_front_widget_area() {
+    register_sidebar(
+        array(
+            'id' => 'front-widget-area',
+            'name' => esc_html__( 'Front Page Widget', 'blankslate' ),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget' => '</div></div>',
+            'before_title' => '<div class="widget-cover"></div><div class="widget-text"><div class="widget-title-holder"><h3 class="widget-title">',
+            'after_title' => '</h3></div>'
+        )
+    );
+}
+add_action( 'widgets_init', 'register_front_widget_area' );
 // Reset CSS 
 add_action( 'wp_head', 'reset_style', 2 );
 function reset_style() {
