@@ -1,29 +1,106 @@
 /*
-Theme Name: icx 2022
+Theme Name: noname
 Theme URI: https://icedterminal.com
 Author: icedterminal
 Author URI: https://icedterminal.com
-Description: n/a
+Description: Unnamed development theme.
 Version: 1.0.0
-License: GNU General Public License v3
+License: GNU GPL v3
 License URI: https://www.gnu.org/licenses/gpl.html
-Tags: one-column, two-columns, custom-menu, featured-images, microformats, sticky-post, threaded-comments,
+Tags:
 */
-
 /*
-
-DEVELOPMENT VERSION. DO NOT USE FOR LIVE. MAKE CHANGES AND MINIFY.
-
-For themes, swap the color palette. With light themes, use xyz. With dark themes, use zyx.
-All color values are HSL/A. Please keep this consistent.
-
-Why HSL/A? This is a significantly easier way to work with color.
-- H = What hue you want between 0 and 360. Red at 0, Orange, Yellow, Green, Blue, Purple and Red at 360.
-- S = What saturation you want between 0% (dull) and 100% (vibrant).
-- L = What lightness you want between 0% (dark) an 100% (bright).
-- And if A is specified, what opacity you want between 0% (transparent) and 100% (opaque).
-
-The invalid media target below will allow you to see all the colors used in the CSS with editors
-that support live color picking and previews. Such as VS Code and Dreamweaver.
-
+	DEVELOPMENT VERSION. DO NOT USE FOR LIVE.
 */
+/*********************************************************************************************************
+	COLOR THEMES
+	This section covers Light and Dark theme. Follows user device preference (system).
+	Rather than define the colors over and over, define once then use the variable.
+	All color values are HSL/A. This is a significantly easier way to work with color.
+	- H = What HUE you want between 0 and 360. Red (0), Orange, Yellow, Green, Blue, Purple and Red (360).
+	- S = What SATURATION you want between dull (0%) and vibrant (100%).
+	- L = What LIGHTNESS you want between dark (0%) an bright (100%).
+	- A = Optional. What opacity you want between transparent (0%) and opaque (100%).
+*********************************************************************************************************/
+@media (prefers-color-scheme:light) {
+	:root {
+		--text-on-light: hsl(0, 0%, 0%);
+		--bg-light: hsl(0,0%,100%);
+	}
+	body {
+		color: var(--text-on-light);
+	}
+}
+@media (prefers-color-scheme:dark) {
+	:root {
+		--text-on-dark: hsl(0, 0%, 100%);
+		--bg-dark: hsl(0,0%,20%);
+	}
+	body {
+		color: var(--text-on-dark);
+	}
+}
+/*********************************************************************************************************
+	RESPONSIVE DESIGN BREAK POINTS
+	The following section covers screen size targeting. Size, Width, Height, Padding, Margin, etc.
+*********************************************************************************************************/
+/*********************************************************************************************************
+	X-Small (xs)
+*********************************************************************************************************/
+@media screen and (min-width:320px) {
+}
+/*********************************************************************************************************
+	Small (sm)
+*********************************************************************************************************/
+@media screen and (min-width:425px) {
+}
+/*********************************************************************************************************
+	Medium (md)
+*********************************************************************************************************/
+@media screen and (min-width:576px) {
+}
+/*********************************************************************************************************
+	Large (lg)
+*********************************************************************************************************/
+@media screen and (min-width:768px) {
+}
+/*********************************************************************************************************
+	X-Large (xl)
+*********************************************************************************************************/
+@media screen and (min-width:992px) {
+}
+/*********************************************************************************************************
+	XX-Large (xxl)
+*********************************************************************************************************/
+@media screen and (min-width:1200px) {
+}
+/*********************************************************************************************************
+	Universal
+*********************************************************************************************************/
+@media screen and (prefers-reduced-motion: reduce) {
+	/* If someone has "reduce motion" on, revert back to straight jumping. No animation */
+	html {
+		scroll-behavior: auto;
+	}
+}
+html {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	height: 200vh;
+}
+::-webkit-scrollbar {
+	width: 24px;
+	transition: all 0.5s 0s linear;
+}
+::-webkit-scrollbar-thumb {
+	border: 8px solid hsla(0,0%,0%,0%);
+	background-clip: padding-box;
+	border-radius: 9999px;
+	background-color: hsla(0,0%,0%,0%);
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: hsl(0, 0%, 85%);
+}
+::-webkit-scrollbar-thumb:active {
+	background-color: hsl(0, 0%, 50%);
+}

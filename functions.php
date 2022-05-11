@@ -36,37 +36,15 @@ function blankslate_notice_dismissed()
 add_action('wp_enqueue_scripts', 'blankslate_enqueue');
 function blankslate_enqueue()
 {
-    wp_enqueue_style('blankslate-style', get_stylesheet_uri());
+    //wp_enqueue_style('blankslate-style', get_stylesheet_uri());
+    // This forces the browser to pull a new version. Development reasons.
+    wp_enqueue_style('blankslate-style', get_stylesheet_directory_uri() .'/style.css', array(), rand(0,100000) );
     wp_enqueue_script('jquery');
 }
 add_action('wp_footer', 'blankslate_footer');
 function blankslate_footer()
 {
 ?>
-    <script>
-        jQuery(document).ready(function($) {
-            var deviceAgent = navigator.userAgent.toLowerCase();
-            if (deviceAgent.match(/(iphone|ipod|ipad)/)) {
-                $("html").addClass("ios");
-                $("html").addClass("mobile");
-            }
-            if (deviceAgent.match(/(Android)/)) {
-                $("html").addClass("android");
-                $("html").addClass("mobile");
-            }
-            if (navigator.userAgent.search("MSIE") >= 0) {
-                $("html").addClass("ie");
-            } else if (navigator.userAgent.search("Chrome") >= 0) {
-                $("html").addClass("chrome");
-            } else if (navigator.userAgent.search("Firefox") >= 0) {
-                $("html").addClass("firefox");
-            } else if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
-                $("html").addClass("safari");
-            } else if (navigator.userAgent.search("Opera") >= 0) {
-                $("html").addClass("opera");
-            }
-        });
-    </script>
 <?php
 }
 add_filter('document_title_separator', 'blankslate_document_title_separator');
@@ -167,7 +145,7 @@ function blankslate_pingback_header()
     if (is_singular() && pings_open()) {
         printf('<link rel="pingback" href="%s" />' . "\n", esc_url(get_bloginfo('pingback_url')));
     }
-}
+}/*
 add_action('comment_form_before', 'blankslate_enqueue_comment_reply_script');
 function blankslate_enqueue_comment_reply_script()
 {
@@ -192,7 +170,7 @@ function blankslate_comment_count($count)
     } else {
         return $count;
     }
-}
+}*/
 // disable json oembed probing. This shows authors/users.
 add_filter('rest_endpoints', function ($endpoints) {
     if (isset($endpoints['/oembed/1.0/embed'])) {
