@@ -15,6 +15,7 @@ function blankslate_setup()
     }
     register_nav_menus(array('main-menu' => esc_html__('Main Menu', 'blankslate')));
 }
+// notice after install
 add_action('admin_notices', 'blankslate_notice');
 function blankslate_notice()
 {
@@ -24,6 +25,7 @@ function blankslate_notice()
     if (!get_user_meta($user_id, 'blankslate_notice_dismissed_7') && current_user_can('manage_options'))
         echo '<div class="notice notice-info"><p><a href="' . esc_url($admin_url), esc_html($param) . 'dismiss" class="alignright" style="text-decoration:none"><big>' . esc_html__('Ⓧ', 'blankslate') . '</big></a>' . wp_kses_post(__('<big><strong>📝 Thank you for using BlankSlate!</strong></big>', 'blankslate')) . '<br /><br /><a href="https://wordpress.org/support/theme/blankslate/reviews/#new-post" class="button-primary" target="_blank">' . esc_html__('Review', 'blankslate') . '</a> <a href="https://github.com/tidythemes/blankslate/issues" class="button-primary" target="_blank">' . esc_html__('Feature Requests & Support', 'blankslate') . '</a> <a href="https://calmestghost.com/donate" class="button-primary" target="_blank">' . esc_html__('Donate', 'blankslate') . '</a></p></div>';
 }
+// notice after install
 add_action('admin_init', 'blankslate_notice_dismissed');
 function blankslate_notice_dismissed()
 {
@@ -148,6 +150,16 @@ function blankslate_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ));
+}
+// Reset CSS 
+add_action( 'wp_head', 'reset_style', 2 );
+function reset_style() {
+printf( '<link rel="stylesheet" href="%s" />' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/css/reset.min.css' );
+}
+// Google Fonts
+add_action( 'wp_head', 'gfonts', 3 );
+function gfonts() {
+printf( '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap">' . "\n" );
 }
 add_action('wp_head', 'blankslate_pingback_header');
 function blankslate_pingback_header()
