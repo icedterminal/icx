@@ -5,7 +5,7 @@
     </header>
     <div class="entry-content" itemprop="mainContentOfPage">
         <p><?php esc_html_e('Nothing found for the requested page. Try a search instead?', 'blankslate'); ?></p>
-        <?php get_search_form(); ?>
+        <?php //get_search_form(); ?>
     </div>
 </article>
 <?php get_footer(); ?>

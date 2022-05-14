@@ -87,12 +87,12 @@ if (!function_exists('blankslate_wp_body_open')) {
     {
         do_action('wp_body_open');
     }
-}
+}/*
 add_action('wp_body_open', 'blankslate_skip_link', 5);
 function blankslate_skip_link()
 {
     echo '<a href="#content" class="skip-link screen-reader-text">' . esc_html__('Skip to the content', 'blankslate') . '</a>';
-}
+}*/
 add_filter('the_content_more_link', 'blankslate_read_more_link');
 function blankslate_read_more_link()
 {
@@ -143,15 +143,15 @@ function register_front_widget_area() {
     );
 }
 add_action( 'widgets_init', 'register_front_widget_area' );
+// Preconnect Google fonts
+add_action( 'wp_head', 'gfonts', 2 );
+function gfonts() {
+printf( '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n" );
+}
 // Reset CSS 
-add_action( 'wp_head', 'reset_style', 2 );
+add_action( 'wp_head', 'reset_style', 3 );
 function reset_style() {
 printf( '<link rel="stylesheet" href="%s" />' . "\n", esc_url( get_template_directory_uri( 'url' ) ) . '/css/reset.min.css' );
-}
-// Google Fonts
-add_action( 'wp_head', 'gfonts', 3 );
-function gfonts() {
-printf( '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap">' . "\n" );
 }
 add_action('wp_head', 'blankslate_pingback_header');
 function blankslate_pingback_header()
@@ -185,6 +185,24 @@ function blankslate_comment_count($count)
         return $count;
     }
 }*/
+// if a user doesn't input anything into the search box, instead of outputting all pages and posts, return 404
+add_action( 'pre_get_posts', function ( $q )
+{
+    if(    !is_admin()
+        && $q->is_main_query()
+        && $q->is_search()
+    ) {
+        $search_terms = $q->get( 's' );
+        if ( !$search_terms ) {
+            add_action( 'wp', function () use ( $q )
+            {
+				$q->set_404();
+				status_header(404);
+				//nocache_headers();
+            });
+        }
+    }
+});
 // disable json oembed probing. This shows authors/users.
 add_filter('rest_endpoints', function ($endpoints) {
     if (isset($endpoints['/oembed/1.0/embed'])) {
